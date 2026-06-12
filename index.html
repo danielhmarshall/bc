@@ -59,12 +59,12 @@
   .app{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;}
   .main{flex:1;display:flex;flex-direction:column;min-width:0;min-height:0;}
   .scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;}
-  .wrap{max-width:780px;margin:0 auto;padding:0 18px 150px;}
+  .wrap{max-width:1020px;margin:0 auto;padding:0 7px 150px;}
   .splash{flex:1;display:flex;align-items:center;justify-content:center;color:var(--mist);font-family:'Inter Variable',serif;font-size:20px;}
 
-  .hero{background:linear-gradient(155deg,#8A363B 0%,var(--brand) 46%,var(--brand-soft) 100%);color:#fff;padding:calc(env(safe-area-inset-top) + 24px) 18px 24px;position:relative;overflow:hidden;box-shadow:0 6px 22px rgba(60,40,25,.22);}
+  .hero{background:linear-gradient(155deg,#8A363B 0%,var(--brand) 46%,var(--brand-soft) 100%);color:#fff;padding:calc(env(safe-area-inset-top) + 24px) 7px 24px;position:relative;overflow:hidden;box-shadow:0 6px 22px rgba(60,40,25,.22);}
   .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(135% 80% at 78% -12%,rgba(255,255,255,.18),transparent 60%);pointer-events:none;z-index:0;}
-  .hero-inner{max-width:780px;margin:0 auto;position:relative;z-index:1;}
+  .hero-inner{max-width:1020px;margin:0 auto;position:relative;z-index:1;}
   .eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--wheat-soft);font-weight:600;}
   .hero h1{font-weight:600;font-size:28px;line-height:1.15;margin:8px 0 2px;letter-spacing:-.01em;}
   .hero .sub{color:rgba(255,255,255,.72);font-size:14px;}
@@ -225,6 +225,17 @@
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
   @keyframes fade{from{opacity:0}to{opacity:1}}
   @keyframes rise{from{transform:translateY(24px);opacity:.6}to{transform:translateY(0);opacity:1}}
+  @keyframes viewIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .viewfade{flex:1;display:flex;flex-direction:column;min-width:0;min-height:0;animation:viewIn .26s cubic-bezier(.22,.8,.2,1);}
+  .tile{transition:transform .12s,box-shadow .2s;}
+  .tile:active{transform:scale(.985);}
+  .snav{transition:transform .1s;}
+  .snav:active{transform:scale(.98);}
+  .tab{transition:transform .1s;}
+  .tab:active{transform:scale(.92);}
+  .seg button{transition:transform .1s,background .15s,color .15s;}
+  .seg button:active{transform:scale(.96);}
+  .btn.ghost:active{transform:translateY(1px);}
   .hero::after{content:'';position:absolute;top:0;bottom:0;right:-14px;width:150px;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20100%20150%27%20fill%3D%27%23ffffff%27%3E%3Ccircle%20cx%3D%2750%27%20cy%3D%277%27%20r%3D%273%27%2F%3E%3Cpath%20d%3D%27M50%2011%20L40%2042%20L60%2042%20Z%27%2F%3E%3Crect%20x%3D%2742%27%20y%3D%2740%27%20width%3D%2716%27%20height%3D%2734%27%2F%3E%3Crect%20x%3D%2722%27%20y%3D%2772%27%20width%3D%2756%27%20height%3D%2762%27%2F%3E%3Crect%20x%3D%2714%27%20y%3D%27128%27%20width%3D%2772%27%20height%3D%278%27%2F%3E%3C%2Fsvg%3E") no-repeat right center;background-size:auto 78%;opacity:.10;pointer-events:none;z-index:0;}
   .section-label::before{content:'';flex:0 0 auto;width:13px;height:13px;background-color:var(--wheat);-webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27%23000%27%3E%3Cpath%20d%3D%27M12%201%20L14.2%209.8%20L23%2012%20L14.2%2014.2%20L12%2023%20L9.8%2014.2%20L1%2012%20L9.8%209.8%20Z%27%2F%3E%3C%2Fsvg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27%23000%27%3E%3Cpath%20d%3D%27M12%201%20L14.2%209.8%20L23%2012%20L14.2%2014.2%20L12%2023%20L9.8%2014.2%20L1%2012%20L9.8%209.8%20Z%27%2F%3E%3C%2Fsvg%3E") center/contain no-repeat;}
   .empty-art{display:block;width:56px;height:56px;margin:0 auto 12px;color:var(--wheat);opacity:.55;}
@@ -362,7 +373,7 @@
   .chartwrap svg{width:100%;height:auto;display:block;}
   .chartwrap .axis{font-size:9px;fill:var(--mist);font-family:'JetBrains Mono Variable',monospace;}
   .popwrap{position:fixed;inset:0;z-index:55;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(20,12,8,.42);}
-  .popcard{background:var(--linen);border:1px solid var(--line);border-radius:16px;padding:18px;max-width:300px;width:100%;box-shadow:0 18px 50px rgba(0,0,0,.28);}
+  .popcard{background:var(--linen);border:1px solid var(--line);border-radius:16px;padding:18px;max-width:360px;width:100%;max-height:86vh;overflow-y:auto;box-shadow:0 18px 50px rgba(0,0,0,.28);}
   .askbar{display:flex;align-items:center;gap:10px;background:var(--linen);border:1px solid var(--line);border-radius:14px;padding:12px 14px;box-shadow:0 1px 0 var(--shadow);}
   .askbar > svg{width:18px;height:18px;color:var(--mist);flex:0 0 auto;}
   .askbar input{flex:1;border:0;background:transparent;font-size:16px;color:var(--ink);outline:none;padding:0;min-width:0;}
@@ -381,6 +392,22 @@
     .snav:hover{background:var(--chip);color:var(--vespers);}
     .evchip:hover{border-color:var(--vespers);}
   }
+  /* ---- quality pass: focus, native theming, touch feel, legibility ---- */
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+  *{-webkit-tap-highlight-color:transparent;}
+  button,a,label,summary,[role=button],.card.tap,.snav,.tab,.seg button{touch-action:manipulation;}
+  :root{color-scheme:light;accent-color:var(--brand);}
+  :root[data-theme=dark]{color-scheme:dark;}
+  @media(prefers-color-scheme:dark){:root:not([data-theme=light]):not([data-theme=dark]){color-scheme:dark;}}
+  :focus{outline:none;}
+  :where(button,a,[role=button],.snav,.tab,.card,.card.tap,.seg button,.check,summary,.asklink):focus-visible{outline:2.5px solid var(--vespers);outline-offset:2px;border-radius:9px;}
+  .meta{font-size:13px;line-height:1.45;}
+  .tile .lbl{font-size:13px;}
+  .tiles.compact{gap:7px;}
+  .tiles.compact .tile,.tile.compact{padding:8px 10px;}
+  .tiles.compact .tile .big,.tile.compact .big{font-size:18px;}
+  .tiles.compact .tile .lbl,.tile.compact .lbl{font-size:11px;margin-top:2px;line-height:1.25;}
+  .tiles.compact .tile .next,.tile.compact .next{font-size:12px;}
 </style>
 </head>
 <body>
@@ -925,6 +952,11 @@ const weekOf = () => {
   return iso(d);
 };
 const daysSince = ts => ts ? Math.floor((Date.now() - ts) / 86400000) : Infinity;
+function haptic(ms) {
+  try {
+    if (typeof navigator !== 'undefined' && navigator.vibrate) navigator.vibrate(ms || 6);
+  } catch (e) {}
+}
 
 /* ---------- calendar export (.ics) ---------- */
 function parseTime(t) {
@@ -983,11 +1015,11 @@ const scriptureURL = ref => 'https://www.churchofjesuschrist.org/search?lang=eng
 const SHEPHERD_VERSES = [{
   ref: 'John 21:16',
   theme: 'Feed my sheep',
-  text: 'Lovest thou me? \u2026 Feed my sheep.'
+  text: 'Lovest thou me? … Feed my sheep.'
 }, {
   ref: 'Luke 15:4',
   theme: 'The one',
-  text: 'Doth he not leave the ninety and nine \u2026 and go after that which is lost, until he find it?'
+  text: 'Doth he not leave the ninety and nine … and go after that which is lost, until he find it?'
 }, {
   ref: 'Matthew 11:28',
   theme: 'Rest',
@@ -998,8 +1030,8 @@ const SHEPHERD_VERSES = [{
   text: 'Inasmuch as ye have done it unto one of the least of these my brethren, ye have done it unto me.'
 }, {
   ref: 'Mosiah 18:9',
-  theme: 'Bear one another\u2019s burdens',
-  text: 'Bear one another\u2019s burdens, that they may be light \u2026 mourn with those that mourn \u2026 and comfort those that stand in need of comfort.'
+  theme: 'Bear one another’s burdens',
+  text: 'Bear one another’s burdens, that they may be light … mourn with those that mourn … and comfort those that stand in need of comfort.'
 }, {
   ref: 'Mosiah 2:17',
   theme: 'Service',
@@ -1035,11 +1067,11 @@ const SHEPHERD_VERSES = [{
 }, {
   ref: 'James 1:27',
   theme: 'Pure religion',
-  text: 'Pure religion \u2026 is this, To visit the fatherless and widows in their affliction, and to keep himself unspotted from the world.'
+  text: 'Pure religion … is this, To visit the fatherless and widows in their affliction, and to keep himself unspotted from the world.'
 }, {
   ref: '1 Peter 5:2',
   theme: 'Oversight',
-  text: 'Feed the flock of God which is among you, taking the oversight thereof \u2026 of a ready mind.'
+  text: 'Feed the flock of God which is among you, taking the oversight thereof … of a ready mind.'
 }, {
   ref: 'Doctrine and Covenants 6:36',
   theme: 'Counsel',
@@ -1047,7 +1079,7 @@ const SHEPHERD_VERSES = [{
 }, {
   ref: 'Isaiah 41:10',
   theme: 'Be not afraid',
-  text: 'Fear thou not; for I am with thee \u2026 I will strengthen thee; yea, I will help thee.'
+  text: 'Fear thou not; for I am with thee … I will strengthen thee; yea, I will help thee.'
 }, {
   ref: 'Matthew 18:20',
   theme: 'Gathered in His name',
@@ -1182,13 +1214,62 @@ const AGENDA_TEMPLATES = {
   'Ward Conference': ['Stake presidency messages', 'Ward goals & progress', 'Organization reports', 'Assignments & follow-up'],
   'Stake Conference': ['Adult session notes', 'General session notes', 'Assignments for the ward'],
   'Stake Leadership': ['Instruction from the stake presidency', 'Ward reports', 'Temple & family history', 'Missionary work', 'Children & Youth', 'Assignments'],
-  'Bishops\u2019 Council': ['Opening & spiritual thought', 'Welfare & self-reliance', 'Ward needs & resources', 'Stake priorities', 'Assignments'],
+  'Bishops’ Council': ['Opening & spiritual thought', 'Welfare & self-reliance', 'Ward needs & resources', 'Stake priorities', 'Assignments'],
   'Priesthood Leadership': ['Instruction from the stake presidency', 'Quorum & elders reports', 'Assignments'],
   'Other': []
 };
 
 /* ---------- icons ---------- */
 const I = {
+  archive: p => React.createElement('svg', {
+    viewBox: '0 0 24 24',
+    fill: 'none',
+    stroke: 'currentColor',
+    strokeWidth: 1.8,
+    strokeLinecap: 'round',
+    strokeLinejoin: 'round',
+    ...p
+  }, React.createElement('rect', {
+    x: 3,
+    y: 4,
+    width: 18,
+    height: 4,
+    rx: 1
+  }), React.createElement('path', {
+    d: 'M5 8v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8'
+  }), React.createElement('path', {
+    d: 'M10 12h4'
+  })),
+  lost: p => React.createElement('svg', {
+    viewBox: '0 0 24 24',
+    fill: 'none',
+    stroke: 'currentColor',
+    strokeWidth: 1.8,
+    strokeLinecap: 'round',
+    strokeLinejoin: 'round',
+    ...p
+  }, React.createElement('path', {
+    d: 'M12 21s6.5-5.2 6.5-10.5a6.5 6.5 0 1 0-13 0C5.5 15.8 12 21 12 21z'
+  }), React.createElement('circle', {
+    cx: 12,
+    cy: 10.5,
+    r: 2.4
+  })),
+  backup: p => React.createElement('svg', {
+    viewBox: '0 0 24 24',
+    fill: 'none',
+    stroke: 'currentColor',
+    strokeWidth: 1.8,
+    strokeLinecap: 'round',
+    strokeLinejoin: 'round',
+    ...p
+  }, React.createElement('path', {
+    d: 'M12 4v9'
+  }), React.createElement('path', {
+    d: 'm8 9 4 4 4-4'
+  }), React.createElement('path', {
+    d: 'M5 15v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2'
+  })),
   today: p => React.createElement('svg', {
     viewBox: '0 0 24 24',
     fill: 'none',
@@ -2762,7 +2843,7 @@ function Today({
   }) => {
     const tr = metric ? metricTrend(data, metric) : null;
     return /*#__PURE__*/React.createElement("button", {
-      className: "tile",
+      className: "tile compact",
       onClick: () => go(view),
       style: {
         textAlign: 'left'
@@ -2780,8 +2861,8 @@ function Today({
       } : tone === 'accent' && n > 0 ? {
         color: 'var(--wheat)'
       } : undefined
-    }, n), tr && /*#__PURE__*/React.createElement(TrendArrow, {
-      dir: tr.dir,
+    }, n), metric && /*#__PURE__*/React.createElement(TrendArrow, {
+      dir: tr ? tr.dir : 'flat',
       invert: (metricByKey(metric) || {}).invert,
       onClick: () => setChartMetric(metric)
     })), /*#__PURE__*/React.createElement("div", {
@@ -2816,13 +2897,7 @@ function Today({
     style: {
       paddingTop: 18
     }
-  }, needBackup && /*#__PURE__*/React.createElement("div", {
-    className: "banner"
-  }, /*#__PURE__*/React.createElement(I.lock, null), /*#__PURE__*/React.createElement("div", {
-    className: "bt"
-  }, "It's been a while since you backed up. Your records live only on this device."), /*#__PURE__*/React.createElement("button", {
-    onClick: () => go('settings')
-  }, "Back up")), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     className: "card",
     style: {
       marginBottom: 2
@@ -2853,9 +2928,9 @@ function Today({
         textDecoration: 'none',
         marginTop: 14
       }
-    }, /*#__PURE__*/React.createElement("p", null, '\u201C' + sv.text + '\u201D'), /*#__PURE__*/React.createElement("div", {
+    }, /*#__PURE__*/React.createElement("p", null, '“' + sv.text + '”'), /*#__PURE__*/React.createElement("div", {
       className: "ref"
-    }, sv.ref.toUpperCase() + ' \u00b7 ' + sv.theme));
+    }, sv.ref.toUpperCase() + ' · ' + sv.theme));
   })(), /*#__PURE__*/React.createElement(OnThisDay, {
     members: members,
     bishopName: data.settings && data.settings.name,
@@ -2867,7 +2942,7 @@ function Today({
     collapsed: hc.needs,
     onToggle: toggleSec
   }, nextEvent && /*#__PURE__*/React.createElement("button", {
-    className: "tile",
+    className: "tile compact",
     onClick: () => go(nextEvent.view),
     style: {
       textAlign: 'left',
@@ -2884,7 +2959,7 @@ function Today({
       marginTop: 2
     }
   }, fmt(nextEvent.date), nextEvent.time ? ' · ' + nextEvent.time : '')), /*#__PURE__*/React.createElement("div", {
-    className: "tiles"
+    className: "tiles compact"
   }, /*#__PURE__*/React.createElement(Stat, {
     n: overdue.length,
     label: overdue.length === 1 ? 'task overdue' : 'tasks overdue',
@@ -2919,7 +2994,101 @@ function Today({
     n: ivUpcoming.length,
     label: "interviews ahead",
     view: "interviews"
-  }))), /*#__PURE__*/React.createElement(HomeSection, {
+  }))), (() => {
+    const tISO = iso(today());
+    const items = [];
+    (data.councils || []).forEach(c => {
+      (c.actions || []).forEach(a => {
+        if (!a.done && a.due && a.due <= tISO) {
+          items.push({
+            id: 'ca' + a.id,
+            kind: 'Council action',
+            label: a.text,
+            who: a.owner || '',
+            sub: c.type || 'Council',
+            due: a.due,
+            view: 'council'
+          });
+        }
+      });
+    });
+    (data.ministering || []).forEach(m => {
+      const du = m.lastInterview ? daysUntil(m.lastInterview) : null;
+      const over = du == null || -du > 90;
+      if (over) {
+        items.push({
+          id: 'mi' + m.id,
+          kind: 'Ministering interview',
+          label: m.companions || 'Companionship',
+          who: '',
+          sub: m.assignedTo ? 'over ' + m.assignedTo : '',
+          due: m.lastInterview ? addDays(m.lastInterview, 90) : '',
+          view: 'ministering',
+          never: !m.lastInterview
+        });
+      }
+    });
+    (data.delegation || []).forEach(x => {
+      if (x.followUp && x.followUp <= tISO) {
+        items.push({
+          id: 'dg' + x.id,
+          kind: 'Assignment',
+          label: x.name || x.role || 'Assignment',
+          who: x.role || '',
+          sub: (x.areas || []).join(', '),
+          due: x.followUp,
+          view: 'delegation'
+        });
+      }
+    });
+    if (!items.length) return null;
+    items.sort((a, b) => {
+      const ad = a.never ? '' : a.due || '9999';
+      const bd = b.never ? '' : b.due || '9999';
+      return ad < bd ? -1 : ad > bd ? 1 : 0;
+    });
+    const moreView = items[4] ? items[4].view : 'council';
+    return /*#__PURE__*/React.createElement(HomeSection, {
+      title: "Delegated & awaiting you",
+      ck: "deleg",
+      collapsed: hc.deleg,
+      onToggle: toggleSec
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "tiles"
+    }, items.slice(0, 4).map(it => {
+      const od = it.never || it.due && it.due < tISO;
+      return /*#__PURE__*/React.createElement("button", {
+        key: it.id,
+        className: "tile compact",
+        onClick: () => go(it.view),
+        style: {
+          textAlign: 'left',
+          gridColumn: '1 / -1'
+        }
+      }, /*#__PURE__*/React.createElement("div", {
+        className: "lbl",
+        style: od ? {
+          color: 'var(--danger)'
+        } : undefined
+      }, it.kind, it.never ? ' · never interviewed' : it.due ? it.due < tISO ? ' · overdue since ' + fmt(it.due) : ' · due ' + fmt(it.due) : ''), /*#__PURE__*/React.createElement("div", {
+        className: "next"
+      }, it.label), (it.who || it.sub) && /*#__PURE__*/React.createElement("div", {
+        className: "meta",
+        style: {
+          marginTop: 2
+        }
+      }, [it.who, it.sub].filter(Boolean).join(' · ')));
+    }), items.length > 4 && /*#__PURE__*/React.createElement("button", {
+      className: "tile compact",
+      onClick: () => go(moreView),
+      style: {
+        textAlign: 'left',
+        gridColumn: '1 / -1'
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "lbl"
+    }, "+", items.length - 4, " more awaiting follow-up"))));
+  })(), /*#__PURE__*/React.createElement(HomeSection, {
     title: `This Sunday · ${fmt(sun)}`,
     ck: "sunday",
     collapsed: hc.sunday,
@@ -2942,7 +3111,7 @@ function Today({
     label: "Sundays planned ahead",
     view: "sacrament"
   }), /*#__PURE__*/React.createElement("button", {
-    className: "tile",
+    className: "tile compact",
     onClick: () => go('interviews'),
     style: {
       textAlign: 'left'
@@ -2975,13 +3144,13 @@ function Today({
       className: "lbl"
     }, "Missionary returning"), /*#__PURE__*/React.createElement("div", {
       className: "next"
-    }, m.name || '\u2014'), /*#__PURE__*/React.createElement("div", {
+    }, m.name || '—'), /*#__PURE__*/React.createElement("div", {
       className: "meta mono",
       style: {
         marginTop: 2
       }
     }, "home ", fmt(m.returnDate)))), pend.length > 0 && /*#__PURE__*/React.createElement("button", {
-      className: "tile",
+      className: "tile compact",
       onClick: () => go('newcomers'),
       style: {
         textAlign: 'left',
@@ -2995,13 +3164,65 @@ function Today({
     }, pend.length), /*#__PURE__*/React.createElement("div", {
       className: "lbl"
     }, pend.length === 1 ? 'move-out: records pending' : 'move-outs: records pending'))));
+  })(), (() => {
+    const careA = (data.care || []).filter(c => !c.done);
+    if (!careA.length) return null;
+    const tI = iso(today());
+    const cs = careA.slice().sort((a, b) => {
+      const ao = a.nextTouch ? a.nextTouch < tI ? 0 : 1 : 2;
+      const bo = b.nextTouch ? b.nextTouch < tI ? 0 : 1 : 2;
+      if (ao !== bo) return ao - bo;
+      const ad = a.nextTouch || a.created || '';
+      const bd = b.nextTouch || b.created || '';
+      return ad < bd ? -1 : ad > bd ? 1 : 0;
+    });
+    return /*#__PURE__*/React.createElement(HomeSection, {
+      title: "People to reach out to",
+      ck: "reach",
+      collapsed: hc.reach,
+      onToggle: toggleSec
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "tiles"
+    }, cs.slice(0, 3).map(c => {
+      const od = c.nextTouch && c.nextTouch < tI;
+      return /*#__PURE__*/React.createElement("button", {
+        key: c.id,
+        className: "tile",
+        onClick: () => go('tosee'),
+        style: {
+          textAlign: 'left',
+          gridColumn: '1 / -1'
+        }
+      }, /*#__PURE__*/React.createElement("div", {
+        className: "lbl",
+        style: od ? {
+          color: 'var(--danger)'
+        } : undefined
+      }, od ? 'Overdue' : c.nextTouch ? 'Reach out by ' + fmt(c.nextTouch) : 'Watching'), /*#__PURE__*/React.createElement("div", {
+        className: "next"
+      }, c.name || '—'), c.intent ? /*#__PURE__*/React.createElement("div", {
+        className: "meta",
+        style: {
+          marginTop: 2
+        }
+      }, c.intent) : null);
+    }), careA.length > 3 && /*#__PURE__*/React.createElement("button", {
+      className: "tile",
+      onClick: () => go('tosee'),
+      style: {
+        textAlign: 'left',
+        gridColumn: '1 / -1'
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "lbl"
+    }, "+", careA.length - 3, " more on your watch list"))));
   })(), /*#__PURE__*/React.createElement(HomeSection, {
     title: "Ward vitals",
     ck: "vitals",
     collapsed: hc.vitals,
     onToggle: toggleSec
   }, /*#__PURE__*/React.createElement("div", {
-    className: "tiles"
+    className: "tiles compact"
   }, /*#__PURE__*/React.createElement("button", {
     className: "tile",
     onClick: () => go('sacrament'),
@@ -3022,11 +3243,11 @@ function Today({
     className: "big mono"
   }, lastAtt == null ? '—' : lastAtt), (() => {
     const tr = metricTrend(data, 'attendance');
-    return tr ? /*#__PURE__*/React.createElement(TrendArrow, {
-      dir: tr.dir,
+    return /*#__PURE__*/React.createElement(TrendArrow, {
+      dir: tr ? tr.dir : 'flat',
       invert: false,
       onClick: () => setChartMetric('attendance')
-    }) : null;
+    });
   })(), avgAtt != null && /*#__PURE__*/React.createElement("span", {
     className: "meta mono"
   }, "8-week average ", avgAtt)), attVals.length > 1 && /*#__PURE__*/React.createElement(Spark, {
@@ -3148,11 +3369,11 @@ function Today({
     }
   }, templeThisYear), (() => {
     const tr = metricTrend(data, 'temple');
-    return tr ? /*#__PURE__*/React.createElement(TrendArrow, {
-      dir: tr.dir,
+    return /*#__PURE__*/React.createElement(TrendArrow, {
+      dir: tr ? tr.dir : 'flat',
       invert: false,
       onClick: () => setChartMetric('temple')
-    }) : null;
+    });
   })()), /*#__PURE__*/React.createElement("div", {
     className: "lbl"
   }, "temple visits ", templeYr)))), /*#__PURE__*/React.createElement(HomeSection, {
@@ -3171,7 +3392,7 @@ function Today({
     label: "done this week",
     view: "tasks"
   }), /*#__PURE__*/React.createElement("button", {
-    className: "tile",
+    className: "tile compact",
     onClick: () => go('guardrails'),
     style: {
       textAlign: 'left'
@@ -3183,13 +3404,13 @@ function Today({
     } : undefined
   }, hrs, /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 15,
+      fontSize: 11,
       color: 'var(--mist)'
     }
   }, "/", tgt, "h")), /*#__PURE__*/React.createElement("div", {
     className: "lbl"
   }, "on the calling")), /*#__PURE__*/React.createElement("button", {
-    className: "tile",
+    className: "tile compact",
     onClick: () => go('meetings'),
     style: {
       textAlign: 'left'
@@ -3244,14 +3465,14 @@ function Today({
 
 /* ===== MEETINGS ===== */
 const WARD_TYPES = ['Ward Council', 'Bishopric', 'Other'];
-const STAKE_TYPES = ['Stake Conference', 'Ward Conference', 'Stake Leadership', 'Bishops\u2019 Council', 'Priesthood Leadership'];
+const STAKE_TYPES = ['Stake Conference', 'Ward Conference', 'Stake Leadership', 'Bishops’ Council', 'Priesthood Leadership'];
 const MTYPES = [...WARD_TYPES, ...STAKE_TYPES];
 const tCls = t => t === 'Ward Council' ? 'council' : t === 'Bishopric' ? 'bishopric' : STAKE_TYPES.indexOf(t) >= 0 ? 'stake' : 'other';
 /* ===== MEETING AGENDA: PDF export, saved templates, live run view ===== */
 function agendaPDF(m) {
   const type = m.type || 'Meeting';
-  const when = [m.date ? fmt(m.date) : '', m.time || ''].filter(Boolean).join(' \u00b7 ');
-  const sub = [type, when].filter(Boolean).join('  \u00b7  ');
+  const when = [m.date ? fmt(m.date) : '', m.time || ''].filter(Boolean).join(' · ');
+  const sub = [type, when].filter(Boolean).join('  ·  ');
   const box = '<span style="display:inline-block;width:13px;height:13px;border:1.5px solid #888;border-radius:3px;margin-right:9px;vertical-align:-1px;"></span>';
   let body = '';
   if (m.attendees) body += '<h2>Present</h2><div class=note>' + escH(m.attendees) + '</div>';
@@ -3274,7 +3495,7 @@ function templatePDF(t) {
     return '<div style="margin:0 0 13px;font-size:14px;">' + box + escH(x) + '<div style="margin:7px 0 0 22px;border-bottom:1px solid #ddd;height:13px;"></div></div>';
   }).join('') + '</div>' : '<div class=empty>No items.</div>';
   body += '<h2>Notes &amp; decisions</h2><div style="border-bottom:1px solid #ddd;height:16px;margin:8px 0;"></div><div style="border-bottom:1px solid #ddd;height:16px;margin:8px 0;"></div><div style="border-bottom:1px solid #ddd;height:16px;margin:8px 0;"></div>';
-  printDoc(t.name || (t.type || '') + ' template', (t.type || '') + '  \u00b7  blank template', body);
+  printDoc(t.name || (t.type || '') + ' template', (t.type || '') + '  ·  blank template', body);
 }
 function RunMeeting({
   data,
@@ -3341,7 +3562,7 @@ function RunMeeting({
   };
   const ag = m.agenda || [];
   const done = ag.filter(a => a.done).length;
-  const when = [m.date ? fmt(m.date) : 'No date', m.time].filter(Boolean).join(' \u00b7 ');
+  const when = [m.date ? fmt(m.date) : 'No date', m.time].filter(Boolean).join(' · ');
   const LK = {
     background: 'none',
     border: 'none',
@@ -3433,7 +3654,7 @@ function RunMeeting({
       color: a.taskId ? 'var(--mist)' : 'var(--vespers)'
     },
     onClick: () => !a.taskId && addTask(a)
-  }, a.taskId ? '\u2713 Task added' : '+ Task'), /*#__PURE__*/React.createElement("button", {
+  }, a.taskId ? '✓ Task added' : '+ Task'), /*#__PURE__*/React.createElement("button", {
     className: "link-danger",
     style: {
       fontSize: 12.5,
@@ -3562,7 +3783,7 @@ function TemplatesSheet({
     style: {
       marginTop: 3
     }
-  }, t.type, " \\u00b7 ", (t.items || []).length, " items")), /*#__PURE__*/React.createElement("span", {
+  }, t.type, " \xB7 ", (t.items || []).length, " items")), /*#__PURE__*/React.createElement("span", {
     className: `pill ${tCls(t.type)}`
   }, t.type)), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -3749,10 +3970,10 @@ function TemplateSheet({
   }, x), /*#__PURE__*/React.createElement("button", {
     style: LK,
     onClick: () => move(i, -1)
-  }, "\\u2191"), /*#__PURE__*/React.createElement("button", {
+  }, "\u2191"), /*#__PURE__*/React.createElement("button", {
     style: LK,
     onClick: () => move(i, 1)
-  }, "\\u2193"), /*#__PURE__*/React.createElement("button", {
+  }, "\u2193"), /*#__PURE__*/React.createElement("button", {
     className: "link-danger",
     style: {
       fontSize: 12,
@@ -3924,7 +4145,7 @@ function Meetings({
     className: "mono"
   }, m.date ? fmt(m.date) : 'No date'), m.time ? /*#__PURE__*/React.createElement("span", {
     className: "mono"
-  }, " \\u00b7 ", m.time) : '')), /*#__PURE__*/React.createElement("span", {
+  }, " \xB7 ", m.time) : '')), /*#__PURE__*/React.createElement("span", {
     className: `pill ${tCls(m.type)}`
   }, m.type)), (m.agenda || []).length > 0 && /*#__PURE__*/React.createElement("div", {
     className: "meta",
@@ -4035,7 +4256,7 @@ function MeetingSheet({
   }, /*#__PURE__*/React.createElement("label", null, "Title"), /*#__PURE__*/React.createElement("input", {
     value: f.title,
     onChange: e => set('title', e.target.value),
-    placeholder: "e.g. Ward Council \\u2014 welfare review"
+    placeholder: "e.g. Ward Council \u2014 welfare review"
   })), /*#__PURE__*/React.createElement("div", {
     className: "row2"
   }, /*#__PURE__*/React.createElement("div", {
@@ -4066,7 +4287,7 @@ function MeetingSheet({
     defaultValue: ""
   }, /*#__PURE__*/React.createElement("option", {
     value: ""
-  }, "Choose a template to add\\u2026"), (AGENDA_TEMPLATES[f.type] || []).length > 0 && /*#__PURE__*/React.createElement("option", {
+  }, "Choose a template to add\u2026"), (AGENDA_TEMPLATES[f.type] || []).length > 0 && /*#__PURE__*/React.createElement("option", {
     value: 'b:' + f.type
   }, "Built-in: ", f.type, " starter"), tmpls.map(t => /*#__PURE__*/React.createElement("option", {
     key: t.id,
@@ -4172,7 +4393,7 @@ function MeetingSheet({
       marginTop: 6
     },
     onClick: () => onDuplicate(f)
-  }, "Schedule next ", f.repeat === 'monthly' ? 'month' : 'week', " \\u2192"), /*#__PURE__*/React.createElement("div", {
+  }, "Schedule next ", f.repeat === 'monthly' ? 'month' : 'week', " \u2192"), /*#__PURE__*/React.createElement("div", {
     style: {
       textAlign: 'center',
       marginTop: 14
@@ -6250,7 +6471,7 @@ function hymnDisplay(v) {
   v = String(v == null ? '' : v).trim();
   if (!v) return '';
   const t = hymnTitle(v);
-  return t ? v + ' \u2014 ' + t : v;
+  return t ? v + ' — ' + t : v;
 }
 function HymnField({
   value,
@@ -6271,7 +6492,7 @@ function HymnField({
       marginTop: 4,
       color: 'var(--vespers)'
     }
-  }, '#' + String(value).trim() + ' \u2014 ' + t) : null);
+  }, '#' + String(value).trim() + ' — ' + t) : null);
 }
 const MEETING_TEMPLATES = [{
   key: 'standard',
@@ -6727,7 +6948,7 @@ function SacSheet({
     type: "button",
     onClick: () => setSec(k, !SEC(k)),
     style: toggleStyle(SEC(k))
-  }, SEC(k) ? '\u2713 ' : '', lbl)))), /*#__PURE__*/React.createElement("div", {
+  }, SEC(k) ? '✓ ' : '', lbl)))), /*#__PURE__*/React.createElement("div", {
     className: "field"
   }, /*#__PURE__*/React.createElement("label", null, "Hymns \u2014 type a number to fill the title"), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -9223,7 +9444,16 @@ function Delegation({
     style: {
       marginTop: 9
     }
-  }, x.note)))), edit && /*#__PURE__*/React.createElement(DelSheet, {
+  }, x.note), x.followUp && /*#__PURE__*/React.createElement("div", {
+    className: "meta",
+    style: daysUntil(x.followUp) < 0 ? {
+      color: 'var(--danger)',
+      marginTop: 9,
+      fontWeight: 600
+    } : {
+      marginTop: 9
+    }
+  }, daysUntil(x.followUp) < 0 ? 'Follow-up overdue · was due ' + fmt(x.followUp) : 'Follow up by ' + fmt(x.followUp))))), edit && /*#__PURE__*/React.createElement(DelSheet, {
     x: edit,
     onClose: () => setEdit(null),
     onSave: x => {
@@ -9313,6 +9543,17 @@ function DelSheet({
     className: "btn ghost sm",
     onClick: addArea
   }, "Add"))), /*#__PURE__*/React.createElement("div", {
+    className: "field"
+  }, /*#__PURE__*/React.createElement("label", null, "Follow up by (optional)"), /*#__PURE__*/React.createElement("input", {
+    type: "date",
+    value: f.followUp || '',
+    onChange: e => set('followUp', e.target.value)
+  }), /*#__PURE__*/React.createElement("p", {
+    className: "meta",
+    style: {
+      marginTop: 4
+    }
+  }, "Shows on Today when it comes due, so the assignment doesn\u2019t slip.")), /*#__PURE__*/React.createElement("div", {
     className: "field"
   }, /*#__PURE__*/React.createElement("label", null, "Note"), /*#__PURE__*/React.createElement("textarea", {
     value: f.note || '',
@@ -9989,7 +10230,7 @@ function Settings({
     try {
       const obj = JSON.parse(paste);
       if (!obj || typeof obj !== 'object' || Array.isArray(obj)) {
-        toast('That doesn\u2019t look like valid backup text');
+        toast('That doesn’t look like valid backup text');
         return;
       }
       snap();
@@ -9998,7 +10239,7 @@ function Settings({
       setPaste('');
       toast('Data loaded');
     } catch (e) {
-      toast('That doesn\u2019t look like valid backup text');
+      toast('That doesn’t look like valid backup text');
     }
   };
   const clearAll = () => {
@@ -10021,7 +10262,7 @@ function Settings({
   };
   const setPass = async pc => {
     if (!cryptoOk()) {
-      toast('Secure lock isn\u2019t available in this browser');
+      toast('Secure lock isn’t available in this browser');
       return;
     }
     const salt = crypto.getRandomValues(new Uint8Array(16));
@@ -10217,7 +10458,20 @@ function Settings({
     style: {
       margin: '-6px 2px 14px'
     }
-  }, "Your data lives only on this device. To copy it to your other device, export here and import there. Nothing is sent to a server."), /*#__PURE__*/React.createElement("div", {
+  }, "Your data lives only on this device. To copy it to your other device, export here and import there. Nothing is sent to a server."), /*#__PURE__*/React.createElement("button", {
+    className: "btn primary full",
+    onClick: download
+  }, /*#__PURE__*/React.createElement(I.backup, {
+    style: {
+      width: 16,
+      height: 16
+    }
+  }), " Back up now"), /*#__PURE__*/React.createElement("p", {
+    className: "meta",
+    style: {
+      margin: '8px 2px 14px'
+    }
+  }, "Downloads a snapshot of everything to this device. Do this regularly \u2014 it\u2019s your safety net."), /*#__PURE__*/React.createElement("div", {
     className: "grid two",
     style: {
       gap: 10
@@ -10239,7 +10493,7 @@ function Settings({
     style: {
       marginTop: 10
     }
-  }, persisted === true ? 'Storage protected \u2014 this device has been asked to keep your data safe.' : persisted === false ? 'Storage not yet protected by the browser \u2014 keep a backup somewhere safe.' : ''), mode === 'export' && /*#__PURE__*/React.createElement("div", {
+  }, persisted === true ? 'Storage protected — this device has been asked to keep your data safe.' : persisted === false ? 'Storage not yet protected by the browser — keep a backup somewhere safe.' : ''), mode === 'export' && /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 14
     }
@@ -10382,7 +10636,7 @@ function Settings({
         return;
       }
       if (p1 !== p2) {
-        toast('Passcodes don\u2019t match');
+        toast('Passcodes don’t match');
         return;
       }
       setPass(p1);
@@ -10426,7 +10680,7 @@ function Settings({
         return;
       }
       if (p1 !== p2) {
-        toast('Passcodes don\u2019t match');
+        toast('Passcodes don’t match');
         return;
       }
       changePass(pOld, p1);
@@ -10649,7 +10903,7 @@ function Temple({
       marginTop: 7,
       fontStyle: 'italic'
     }
-  }, "\u201C", t.note.slice(0, 100), t.note.length > 100 ? '\u2026' : '', "\u201D") : null))))), edit && /*#__PURE__*/React.createElement(TempleSheet, {
+  }, "\u201C", t.note.slice(0, 100), t.note.length > 100 ? '…' : '', "\u201D") : null))))), edit && /*#__PURE__*/React.createElement(TempleSheet, {
     t: edit,
     data: data,
     onClose: () => setEdit(null),
@@ -11126,6 +11380,147 @@ function LineChart({
     }
   }, "Each line is scaled to its own range, so you can see whether the two move together."));
 }
+function PieChart({
+  slices
+}) {
+  const real = (slices || []).filter(x => x.value > 0);
+  const tot = real.reduce((a, x) => a + x.value, 0);
+  if (tot <= 0) return /*#__PURE__*/React.createElement("div", {
+    className: "meta"
+  }, "No numbers recorded yet to break down.");
+  let acc = 0;
+  const R = 58,
+    cx = 70,
+    cy = 70;
+  const arcs = real.map(x => {
+    const frac = x.value / tot;
+    const a0 = acc * 2 * Math.PI - Math.PI / 2;
+    acc += frac;
+    const a1 = acc * 2 * Math.PI - Math.PI / 2;
+    const x0 = cx + R * Math.cos(a0),
+      y0 = cy + R * Math.sin(a0),
+      x1 = cx + R * Math.cos(a1),
+      y1 = cy + R * Math.sin(a1);
+    const large = frac > 0.5 ? 1 : 0;
+    const d = real.length === 1 ? 'M' + (cx - R) + ',' + cy + ' a' + R + ',' + R + ' 0 1 0 ' + R * 2 + ',0 a' + R + ',' + R + ' 0 1 0 ' + -R * 2 + ',0' : 'M' + cx + ',' + cy + ' L' + x0.toFixed(1) + ',' + y0.toFixed(1) + ' A' + R + ',' + R + ' 0 ' + large + ' 1 ' + x1.toFixed(1) + ',' + y1.toFixed(1) + ' Z';
+    return {
+      d,
+      color: x.color,
+      label: x.label,
+      value: x.value,
+      pct: Math.round(frac * 100)
+    };
+  });
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      gap: 14,
+      alignItems: 'center',
+      flexWrap: 'wrap',
+      marginTop: 4
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    viewBox: "0 0 140 140",
+    style: {
+      width: 124,
+      height: 124,
+      flex: '0 0 auto'
+    }
+  }, arcs.map((a, i) => /*#__PURE__*/React.createElement("path", {
+    key: i,
+    d: a.d,
+    fill: a.color,
+    stroke: "var(--linen)",
+    strokeWidth: "1.5"
+  }))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      minWidth: 118
+    }
+  }, arcs.map((a, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 8,
+      fontSize: 13,
+      padding: '3px 0'
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      width: 11,
+      height: 11,
+      borderRadius: 3,
+      background: a.color,
+      flex: '0 0 auto'
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: 'var(--ink)',
+      fontWeight: 600
+    }
+  }, a.label), /*#__PURE__*/React.createElement("span", {
+    className: "meta mono",
+    style: {
+      marginLeft: 'auto'
+    }
+  }, a.value, " \\u00b7 ", a.pct, "%")))));
+}
+const PIE_GROUPS = {
+  recActive: 'recommends',
+  recExpiring: 'recommends',
+  recExpired: 'recommends',
+  youngMen: 'youth',
+  youngWomen: 'youth',
+  covOnPath: 'covenant',
+  covComplete: 'covenant'
+};
+function pieSlicesFor(mkey, data) {
+  const cur = k => {
+    const x = metricByKey(k);
+    if (!x) return 0;
+    const ss = metricSeries(data, x);
+    const v = ss.length ? ss[ss.length - 1].v : x.live ? x.live(data) : 0;
+    return Number(v) || 0;
+  };
+  const g = PIE_GROUPS[mkey];
+  if (g === 'recommends') return [{
+    label: 'Active',
+    value: cur('recActive'),
+    color: 'var(--sage)'
+  }, {
+    label: 'Expiring soon',
+    value: cur('recExpiring'),
+    color: 'var(--wheat)'
+  }, {
+    label: 'Expired',
+    value: cur('recExpired'),
+    color: 'var(--danger)'
+  }];
+  if (g === 'youth') return [{
+    label: 'Young men',
+    value: cur('youngMen'),
+    color: 'var(--vespers)'
+  }, {
+    label: 'Young women',
+    value: cur('youngWomen'),
+    color: 'var(--wheat)'
+  }];
+  if (g === 'covenant') {
+    const on = cur('covOnPath'),
+      done = cur('covComplete');
+    return [{
+      label: 'Ordinances complete',
+      value: done,
+      color: 'var(--sage)'
+    }, {
+      label: 'Still progressing',
+      value: Math.max(0, on - done),
+      color: 'var(--wheat)'
+    }];
+  }
+  return null;
+}
 function MetricPop({
   mkey,
   data,
@@ -11134,11 +11529,14 @@ function MetricPop({
 }) {
   const m = metricByKey(mkey);
   if (!m) return null;
+  const [view, setView] = useState('trend');
   const s = metricSeries(data, m);
   const tr = metricTrend(data, m);
   const last = s.length ? s[s.length - 1].v : null;
   const good = tr ? tr.dir === 'flat' ? null : m.invert ? tr.dir === 'down' : tr.dir === 'up' : null;
   const col = good == null ? 'var(--mist)' : good ? 'var(--sage)' : 'var(--danger)';
+  const pie = pieSlicesFor(mkey, data);
+  const hasPie = !!(pie && pie.reduce((a, x) => a + x.value, 0) > 0);
   return /*#__PURE__*/React.createElement("div", {
     className: "popwrap",
     onClick: onClose
@@ -11179,12 +11577,33 @@ function MetricPop({
       fontSize: 13,
       marginTop: 8
     }
-  }, tr ? (tr.delta > 0 ? '\u25B2 +' + tr.delta : tr.delta < 0 ? '\u25BC ' + tr.delta : '\u2013 no change') + ' since previous' : 'Not enough history yet for a trend.'), s.length >= 2 && /*#__PURE__*/React.createElement(Spark, {
-    values: s.map(p => p.v)
-  }), s.length >= 1 && /*#__PURE__*/React.createElement("div", {
+  }, tr ? (tr.delta > 0 ? '\u25b2 +' + tr.delta : tr.delta < 0 ? '\u25bc ' + tr.delta : '\u2013 no change') + ' since previous' : 'Not enough history yet for a trend \u2014 record snapshots in Reports.'), hasPie && /*#__PURE__*/React.createElement("div", {
+    className: "seg",
+    style: {
+      margin: '14px 0 2px'
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    className: view === 'trend' ? 'on' : '',
+    onClick: () => setView('trend')
+  }, "Trend"), /*#__PURE__*/React.createElement("button", {
+    className: view === 'pie' ? 'on' : '',
+    onClick: () => setView('pie')
+  }, "Breakdown")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: hasPie ? 8 : 14
+    }
+  }, view === 'pie' && hasPie ? /*#__PURE__*/React.createElement(PieChart, {
+    slices: pie
+  }) : /*#__PURE__*/React.createElement(LineChart, {
+    series: [{
+      label: m.label,
+      color: col === 'var(--mist)' ? 'var(--vespers)' : col,
+      points: s
+    }]
+  })), s.length >= 1 && /*#__PURE__*/React.createElement("div", {
     className: "meta",
     style: {
-      marginTop: 8
+      marginTop: 10
     }
   }, s.length, " point", s.length === 1 ? '' : 's', " \\u00b7 ", fmt(s[0].date), " \\u2192 ", fmt(s[s.length - 1].date)), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -11264,12 +11683,12 @@ function ChartSheet({
       fontWeight: 600,
       fontSize: 13
     }
-  }, tr.delta > 0 ? '\u25B2 +' + tr.delta : tr.delta < 0 ? '\u25BC ' + tr.delta : '\u2013 no change', " since previous")), /*#__PURE__*/React.createElement("div", {
+  }, tr.delta > 0 ? '▲ +' + tr.delta : tr.delta < 0 ? '▼ ' + tr.delta : '– no change', " since previous")), /*#__PURE__*/React.createElement("div", {
     className: "meta",
     style: {
       marginBottom: 14
     }
-  }, s.length, " data point", s.length === 1 ? '' : 's', s.length ? ` \u00b7 ${fmt(s[0].date)} \u2192 ${fmt(s[s.length - 1].date)}` : ''), /*#__PURE__*/React.createElement(LineChart, {
+  }, s.length, " data point", s.length === 1 ? '' : 's', s.length ? ` · ${fmt(s[0].date)} → ${fmt(s[s.length - 1].date)}` : ''), /*#__PURE__*/React.createElement(LineChart, {
     series: sets
   }), /*#__PURE__*/React.createElement("div", {
     className: "field",
@@ -11288,7 +11707,204 @@ function ChartSheet({
     className: "meta"
   }, m.key === 'attendance' ? 'Primary line from your Sacrament attendance entries.' : 'Primary line from your Temple attendance log.') : /*#__PURE__*/React.createElement("p", {
     className: "meta"
-  }, "Primary line from your recorded snapshots", m.live ? ', extended with today\u2019s current value' : '', "."));
+  }, "Primary line from your recorded snapshots", m.live ? ', extended with today’s current value' : '', "."));
+}
+function archiveItems(data) {
+  const t = iso(today());
+  const out = [];
+  const push = o => out.push(o);
+  (data.interviews || []).filter(x => x.done).forEach(x => push({
+    id: 'iv' + x.id,
+    type: 'Interview',
+    title: x.name || 'Interview',
+    sub: [x.type, x.location].filter(Boolean).join(' \u00b7 '),
+    date: x.date || '',
+    view: 'interviews'
+  }));
+  (data.meetings || []).filter(m => m.date && m.date < t).forEach(m => push({
+    id: 'mt' + m.id,
+    type: 'Meeting',
+    title: m.title || 'Meeting',
+    sub: [m.location, (m.agenda || []).length ? m.agenda.length + ' agenda items' : ''].filter(Boolean).join(' \u00b7 '),
+    date: m.date,
+    view: 'meetings'
+  }));
+  (data.councils || []).filter(c => c.date && c.date < t).forEach(c => push({
+    id: 'cl' + c.id,
+    type: 'Council',
+    title: c.type || 'Council',
+    sub: [(c.actions || []).length ? c.actions.length + ' action items' : '', c.location].filter(Boolean).join(' \u00b7 '),
+    date: c.date,
+    view: 'council'
+  }));
+  (data.tasks || []).map(normTask).filter(x => x.done).forEach(x => push({
+    id: 'tk' + x.id,
+    type: 'Task',
+    title: x.title || 'Task',
+    sub: (x.tags || []).join(', '),
+    date: x.doneAt ? iso(new Date(x.doneAt)) : '',
+    view: 'tasks'
+  }));
+  (data.care || []).filter(c => c.done).forEach(c => push({
+    id: 'cr' + c.id,
+    type: 'Reached out',
+    title: c.name || '\u2014',
+    sub: c.intent || '',
+    date: c.lastTouch || c.created || '',
+    view: 'tosee'
+  }));
+  (data.service || []).filter(x => x.status && /done|complete|provided|filled|closed/i.test(x.status)).forEach(x => push({
+    id: 'sv' + x.id,
+    type: 'Service',
+    title: (x.kind || 'Service') + (x.household ? ' \u00b7 ' + x.household : ''),
+    sub: (x.helpers || []).join(', '),
+    date: x.when || '',
+    view: 'service'
+  }));
+  (data.sacrament || []).filter(p => p.date && p.date < t).forEach(p => push({
+    id: 'sa' + (p.id || p.date),
+    type: 'Sacrament',
+    title: 'Sacrament meeting',
+    sub: [(p.speakers || []).length ? p.speakers.length + ' speakers' : '', p.conducting ? 'conducted' : ''].filter(Boolean).join(' \u00b7 '),
+    date: p.date,
+    view: 'sacrament'
+  }));
+  (data.temple || []).forEach(x => push({
+    id: 'tp' + (x.id || x.date),
+    type: 'Temple',
+    title: x.temple || 'Temple visit',
+    sub: x.type || '',
+    date: x.date || '',
+    view: 'temple'
+  }));
+  const tl = data.tithingDecl && data.tithingDecl.list || [];
+  tl.filter(x => x.met).forEach(x => push({
+    id: 'th' + (x.id || x.name),
+    type: 'Tithing',
+    title: x.name || x.household || 'Declaration',
+    sub: 'Declaration settled',
+    date: x.date || (data.tithingDecl && data.tithingDecl.year ? String(data.tithingDecl.year) : ''),
+    view: 'tithing'
+  }));
+  (data.newcomers || []).filter(x => x.done).forEach(x => push({
+    id: 'nc' + x.id,
+    type: 'New member',
+    title: x.name || '\u2014',
+    sub: x.type || '',
+    date: x.arrived || '',
+    view: 'newcomers'
+  }));
+  (data.lostsheep || []).filter(x => x.status && x.status !== 'Seeking').forEach(x => push({
+    id: 'ls' + x.id,
+    type: 'Lost sheep',
+    title: x.name || '\u2014',
+    sub: x.status,
+    date: x.lost || x.discovered || '',
+    view: 'lostsheep'
+  }));
+  out.forEach(o => {
+    o.search = ((o.type || '') + ' ' + (o.title || '') + ' ' + (o.sub || '')).toLowerCase();
+  });
+  return out.sort((a, b) => {
+    const ad = a.date || '';
+    const bd = b.date || '';
+    return ad < bd ? 1 : ad > bd ? -1 : 0;
+  });
+}
+function Archive({
+  data,
+  go,
+  onBack
+}) {
+  const [q, setQ] = useState('');
+  const [type, setType] = useState('All');
+  const items = archiveItems(data);
+  const types = ['All'].concat(Array.from(new Set(items.map(i => i.type))));
+  const ql = q.trim().toLowerCase();
+  const shown = items.filter(i => (type === 'All' || i.type === type) && (!ql || i.search.includes(ql)));
+  return /*#__PURE__*/React.createElement(Module, {
+    title: "Archive",
+    subtitle: "Everything you've completed, in one place",
+    onBack: onBack
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "field",
+    style: {
+      marginTop: 14,
+      marginBottom: 8
+    }
+  }, /*#__PURE__*/React.createElement("input", {
+    value: q,
+    onChange: e => setQ(e.target.value),
+    placeholder: "Search completed work \u2014 name, type, topic\u2026"
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      gap: 7,
+      flexWrap: 'wrap',
+      marginBottom: 14
+    }
+  }, types.map(tp => {
+    const n = tp === 'All' ? items.length : items.filter(i => i.type === tp).length;
+    return /*#__PURE__*/React.createElement("button", {
+      key: tp,
+      className: "chip",
+      onClick: () => setType(tp),
+      style: type === tp ? {
+        background: 'var(--chip)',
+        color: 'var(--vespers)',
+        fontWeight: 700
+      } : undefined
+    }, tp, n ? ' \u00b7 ' + n : '');
+  })), items.length === 0 && /*#__PURE__*/React.createElement(Empty, {
+    mark: "Nothing archived yet.",
+    text: "As you complete interviews, hold meetings, finish tasks and reach out to members, they gather here \u2014 searchable, so nothing is lost."
+  }), items.length > 0 && shown.length === 0 && /*#__PURE__*/React.createElement(Empty, {
+    mark: "No matches.",
+    text: "Try a different search term or filter."
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "grid",
+    style: {
+      gap: 8
+    }
+  }, shown.slice(0, 400).map(it => /*#__PURE__*/React.createElement("button", {
+    key: it.id,
+    className: "card tap",
+    onClick: () => go(it.view),
+    style: {
+      textAlign: 'left'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "card-row"
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "title-md"
+  }, it.title), it.sub ? /*#__PURE__*/React.createElement("div", {
+    className: "meta",
+    style: {
+      marginTop: 2
+    }
+  }, it.sub) : null), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: '0 0 auto',
+      textAlign: 'right',
+      marginLeft: 10
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "pill other"
+  }, it.type), it.date ? /*#__PURE__*/React.createElement("div", {
+    className: "meta mono",
+    style: {
+      marginTop: 5
+    }
+  }, fmt(it.date)) : null))))), shown.length > 400 && /*#__PURE__*/React.createElement("p", {
+    className: "meta",
+    style: {
+      marginTop: 10
+    }
+  }, "Showing the most recent 400 \u2014 narrow with search to reach older items."));
 }
 function Reports({
   data,
@@ -11424,7 +12040,7 @@ function Reports({
       className: "ml"
     }, m.label), /*#__PURE__*/React.createElement("span", {
       className: "mv"
-    }, v == null ? '\u2014' : v), tr ? /*#__PURE__*/React.createElement(TrendArrow, {
+    }, v == null ? '—' : v), tr ? /*#__PURE__*/React.createElement(TrendArrow, {
       dir: tr.dir,
       invert: m.invert,
       onClick: () => setChart(m.key)
@@ -11703,7 +12319,7 @@ function SpeakerTracker({
   }, lbl))), /*#__PURE__*/React.createElement("input", {
     value: q,
     onChange: e => setQ(e.target.value),
-    placeholder: tab === 'upcoming' ? 'Search upcoming programs\u2026' : tab === 'speakers' ? 'Search speakers\u2026' : tab === 'topics' ? 'Search topics\u2026' : 'Search hymns\u2026',
+    placeholder: tab === 'upcoming' ? 'Search upcoming programs…' : tab === 'speakers' ? 'Search speakers…' : tab === 'topics' ? 'Search topics…' : 'Search hymns…',
     style: {
       padding: '11px 14px',
       border: '1px solid var(--line)',
@@ -11750,7 +12366,7 @@ function SpeakerTracker({
     style: {
       marginTop: 6
     }
-  }, "Hymns: ", [s.hymns.opening, s.hymns.sacrament, s.hymns.closing].filter(Boolean).map(hymnDisplay).join(' \u00b7 ')) : null)))), tab !== 'upcoming' && (rowsF.length === 0 ? /*#__PURE__*/React.createElement(Empty, {
+  }, "Hymns: ", [s.hymns.opening, s.hymns.sacrament, s.hymns.closing].filter(Boolean).map(hymnDisplay).join(' · ')) : null)))), tab !== 'upcoming' && (rowsF.length === 0 ? /*#__PURE__*/React.createElement(Empty, {
     mark: ql ? "No matches." : "No history yet.",
     text: ql ? "Nothing recorded matches that search." : "As you record sacrament programs, the names, topics, and hymns you use will gather here so you can see what's been used and when."
   }) : /*#__PURE__*/React.createElement("div", null, rowsF.map((r, i) => /*#__PURE__*/React.createElement("button", {
@@ -11761,7 +12377,7 @@ function SpeakerTracker({
     className: "ml"
   }, r.name), /*#__PURE__*/React.createElement("span", {
     className: "meta mono"
-  }, r.count + '\u00d7  \u00b7  ' + (r.last ? fmt(r.last) : '\u2014')), /*#__PURE__*/React.createElement("span", {
+  }, r.count + '×  ·  ' + (r.last ? fmt(r.last) : '—')), /*#__PURE__*/React.createElement("span", {
     className: "trend",
     style: {
       color: 'var(--mist)'
@@ -11938,9 +12554,9 @@ function Scripture({
       display: 'block',
       textDecoration: 'none'
     }
-  }, /*#__PURE__*/React.createElement("p", null, '\u201C' + v.text + '\u201D'), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("p", null, '“' + v.text + '”'), /*#__PURE__*/React.createElement("div", {
     className: "ref"
-  }, v.ref.toUpperCase() + ' \u00b7 ' + v.theme))))), tab === 'log' && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+  }, v.ref.toUpperCase() + ' · ' + v.theme))))), tab === 'log' && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "card",
     style: {
       marginBottom: 14
@@ -11999,7 +12615,7 @@ function Scripture({
     style: {
       marginTop: 5
     }
-  }, e.minutes ? `${e.minutes} min` : '', e.minutes && e.note ? ' \u00b7 ' : '', e.note || '') : null)))), tab === 'standard' && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", {
+  }, e.minutes ? `${e.minutes} min` : '', e.minutes && e.note ? ' · ' : '', e.note || '') : null)))), tab === 'standard' && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", {
     className: "meta",
     style: {
       marginTop: 0,
@@ -12315,7 +12931,7 @@ function Notes({
   }, /*#__PURE__*/React.createElement("input", {
     value: q,
     onChange: e => setQ(e.target.value),
-    placeholder: "Search notes\\u2026",
+    placeholder: "Search notes\u2026",
     style: {
       padding: '11px 14px',
       border: '1px solid var(--line)',
@@ -12364,7 +12980,7 @@ function Notes({
     className: "card-row"
   }, /*#__PURE__*/React.createElement("div", {
     className: "title-md"
-  }, n.pinned ? '\u2605 ' : '', n.title || 'Untitled note'), /*#__PURE__*/React.createElement("span", {
+  }, n.pinned ? '★ ' : '', n.title || 'Untitled note'), /*#__PURE__*/React.createElement("span", {
     className: "pill other"
   }, n.cat)), n.body ? /*#__PURE__*/React.createElement("div", {
     className: "meta",
@@ -12700,8 +13316,8 @@ function globalSearch(data, ql) {
   cap(data.tithing || [], t => `${t.household || ''} ${t.note || ''}`.toLowerCase().includes(ql) ? t.household || 'Household' : null, 'Tithing', 'tithing', 3);
   cap(data.service || [], x => `${x.kind || ''} ${x.household || ''} ${x.note || ''} ${(x.helpers || []).join(' ')}`.toLowerCase().includes(ql) ? `${x.kind || 'Service'}${x.household ? ' · ' + x.household : ''}` : null, 'Service', 'service', 3);
   cap(data.newcomers || [], x => `${x.name || ''} ${x.type || ''} ${x.note || ''}`.toLowerCase().includes(ql) ? x.name || 'New member' : null, 'New & coming', 'newcomers', 3);
-  cap(data.missionaries || [], m => `${m.name || ''} ${m.mission || ''} ${m.status || ''} ${m.note || ''}`.toLowerCase().includes(ql) ? `${m.name || 'Missionary'}${m.mission ? ' \u00b7 ' + m.mission : ''}` : null, 'Missionary', 'missionaries', 3);
-  cap(data.moveouts || [], x => `${x.name || ''} ${x.destination || ''} ${x.note || ''}`.toLowerCase().includes(ql) ? `${x.name || 'Move-out'}${x.destination ? ' \u00b7 ' + x.destination : ''}` : null, 'Moving out', 'newcomers', 3);
+  cap(data.missionaries || [], m => `${m.name || ''} ${m.mission || ''} ${m.status || ''} ${m.note || ''}`.toLowerCase().includes(ql) ? `${m.name || 'Missionary'}${m.mission ? ' · ' + m.mission : ''}` : null, 'Missionary', 'missionaries', 3);
+  cap(data.moveouts || [], x => `${x.name || ''} ${x.destination || ''} ${x.note || ''}`.toLowerCase().includes(ql) ? `${x.name || 'Move-out'}${x.destination ? ' · ' + x.destination : ''}` : null, 'Moving out', 'newcomers', 3);
   return out.slice(0, 20);
 }
 function AskBar({
@@ -13995,7 +14611,7 @@ function CalendarView({
       className: "agday"
     }, /*#__PURE__*/React.createElement("div", {
       className: "agdate"
-    }, fmt(di), di === iso(today()) ? ' \u00b7 Today' : ''), /*#__PURE__*/React.createElement("div", {
+    }, fmt(di), di === iso(today()) ? ' · Today' : ''), /*#__PURE__*/React.createElement("div", {
       className: "grid",
       style: {
         gap: 8
@@ -14071,7 +14687,7 @@ function CalendarView({
         className: "tt"
       }, e.title), /*#__PURE__*/React.createElement("div", {
         className: "tm"
-      }, fmtTime(e.time), e.endTime ? '\u2013' + fmtTime(e.endTime) : '', " \\u00b7 ", calLabel(e.cal)));
+      }, fmtTime(e.time), e.endTime ? '–' + fmtTime(e.endTime) : '', " \xB7 ", calLabel(e.cal)));
     })))), /*#__PURE__*/React.createElement("button", {
       className: "btn ghost full",
       style: {
@@ -14268,7 +14884,7 @@ function Planner({
   }, d.overdue ? 'Overdue' : 'Soon')))));
   const mileList = mile.length === 0 ? /*#__PURE__*/React.createElement(Empty, {
     mark: "No milestones yet.",
-    text: "Add birth dates to members and youth and the coming-of-age moments \\u2014 baptism at 8, advancement, age 18 \\u2014 show here."
+    text: "Add birth dates to members and youth and the coming-of-age moments \u2014 baptism at 8, advancement, age 18 \u2014 show here."
   }) : /*#__PURE__*/React.createElement("div", {
     className: "grid",
     style: {
@@ -14309,7 +14925,7 @@ function Planner({
   }, "Calendar"), /*#__PURE__*/React.createElement("button", {
     className: tab === 'up' ? 'on' : '',
     onClick: () => setTab('up')
-  }, "Coming up", attention ? ` \u00b7 ${attention}` : '')), tab === 'cal' && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+  }, "Coming up", attention ? ` · ${attention}` : '')), tab === 'cal' && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       justifyContent: 'flex-end',
@@ -14341,12 +14957,12 @@ function Planner({
     style: {
       margin: '2px 2px 8px'
     }
-  }, "Due soon", due.length ? ` \u00b7 ${due.length}` : ''), dueList, /*#__PURE__*/React.createElement("div", {
+  }, "Due soon", due.length ? ` · ${due.length}` : ''), dueList, /*#__PURE__*/React.createElement("div", {
     className: "ksub",
     style: {
       margin: '22px 2px 6px'
     }
-  }, "Milestones", mile.length ? ` \u00b7 ${mile.length}` : ''), /*#__PURE__*/React.createElement("p", {
+  }, "Milestones", mile.length ? ` · ${mile.length}` : ''), /*#__PURE__*/React.createElement("p", {
     className: "meta",
     style: {
       margin: '0 2px 10px'
@@ -14707,7 +15323,7 @@ function CallingPipeline({
     className: "stat"
   }, /*#__PURE__*/React.createElement("div", {
     className: "big"
-  }, members ? noCalling.length : '\u2014'), /*#__PURE__*/React.createElement("div", {
+  }, members ? noCalling.length : '—'), /*#__PURE__*/React.createElement("div", {
     className: "lbl"
   }, "Without a calling")), /*#__PURE__*/React.createElement("div", {
     className: "stat"
@@ -14740,7 +15356,7 @@ function CallingPipeline({
     style: {
       fontSize: 15
     }
-  }, r.position || '\u2014'), /*#__PURE__*/React.createElement("div", {
+  }, r.position || '—'), /*#__PURE__*/React.createElement("div", {
     className: "meta",
     style: {
       marginTop: 3
@@ -14828,7 +15444,7 @@ function CallingPipeline({
     }, t || 'no date')));
   }))), sec('none', 'Members without a calling' + (members ? ` · ${noCalling.length}` : ''), null, !members ? /*#__PURE__*/React.createElement("div", {
     className: "meta"
-  }, "Unlock your membership directory to see who isn\\u2019t currently serving.") : noCalling.length === 0 ? /*#__PURE__*/React.createElement("div", {
+  }, "Unlock your membership directory to see who isn\u2019t currently serving.") : noCalling.length === 0 ? /*#__PURE__*/React.createElement("div", {
     className: "meta"
   }, "Everyone in your directory has a calling recorded.") : /*#__PURE__*/React.createElement("div", {
     className: "grid",
@@ -14972,10 +15588,10 @@ function CallingPipeline({
     })), !isRel && edit.candidate && /*#__PURE__*/React.createElement("button", {
       className: "btn ghost full",
       onClick: () => recordCall(edit)
-    }, "Record set apart", '\u2192', " leadership", !membersLocked && members ? ' & member' : ''), isRel && edit.candidate && /*#__PURE__*/React.createElement("button", {
+    }, "Record set apart", '→', " leadership", !membersLocked && members ? ' & member' : ''), isRel && edit.candidate && /*#__PURE__*/React.createElement("button", {
       className: "btn ghost full",
       onClick: () => recordRelease(edit)
-    }, "Record release ", '\u2192', " update leadership", !membersLocked && members ? ' & member' : ''), /*#__PURE__*/React.createElement("div", {
+    }, "Record release ", '→', " update leadership", !membersLocked && members ? ' & member' : ''), /*#__PURE__*/React.createElement("div", {
       style: {
         display: 'flex',
         gap: 10,
@@ -15044,7 +15660,7 @@ function CallingPipeline({
       background: r.multi ? 'var(--chip)' : 'transparent',
       color: r.multi ? 'var(--vespers)' : 'var(--mist)'
     }
-  }, r.multi ? '\u2713 multiple' : 'single'), /*#__PURE__*/React.createElement("button", {
+  }, r.multi ? '✓ multiple' : 'single'), /*#__PURE__*/React.createElement("button", {
     className: "link-danger",
     style: {
       fontSize: 12
@@ -15092,7 +15708,7 @@ function CallingPipeline({
       color: rd.multi ? 'var(--vespers)' : 'var(--mist)',
       whiteSpace: 'nowrap'
     }
-  }, rd.multi ? '\u2713 multiple' : 'single'), /*#__PURE__*/React.createElement("button", {
+  }, rd.multi ? '✓ multiple' : 'single'), /*#__PURE__*/React.createElement("button", {
     className: "btn ghost sm",
     onClick: addRoster
   }, "Add")))));
@@ -15848,7 +16464,7 @@ function Councils({
       style: {
         marginTop: 3
       }
-    }, fmt(c.date), c.time ? ` \u00b7 ${fmtTime(c.time)}` : '')), open > 0 ? /*#__PURE__*/React.createElement("span", {
+    }, fmt(c.date), c.time ? ` · ${fmtTime(c.time)}` : '')), open > 0 ? /*#__PURE__*/React.createElement("span", {
       className: "pill recommend"
     }, open, " open") : /*#__PURE__*/React.createElement("span", {
       className: "pill other"
@@ -15892,7 +16508,8 @@ function CouncilSheet({
   });
   const [ac, setAc] = useState({
     text: '',
-    owner: ''
+    owner: '',
+    due: ''
   });
   const addAg = () => {
     if (!ag.text.trim()) return;
@@ -15913,12 +16530,14 @@ function CouncilSheet({
       id: uid(),
       text: ac.text.trim(),
       owner: ac.owner.trim(),
+      due: ac.due || '',
       done: false,
       created: f.date
     }]);
     setAc({
       text: '',
-      owner: ''
+      owner: '',
+      due: ''
     });
   };
   const togAg = id => set('agenda', (f.agenda || []).map(x => x.id === id ? {
@@ -16048,7 +16667,7 @@ function CouncilSheet({
     onClick: addAg
   }, "Add"))), /*#__PURE__*/React.createElement("div", {
     className: "field"
-  }, /*#__PURE__*/React.createElement("label", null, "Action items", openCount ? ` \u00b7 ${openCount} open` : ''), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("label", null, "Action items", openCount ? ` · ${openCount} open` : ''), /*#__PURE__*/React.createElement("div", {
     className: "privacy",
     style: {
       marginBottom: 8
@@ -16089,7 +16708,15 @@ function CouncilSheet({
       font: 'inherit',
       cursor: 'pointer'
     }
-  }, a.owner) : a.owner : '', a.created && a.created !== f.date ? `${a.owner ? ' \u00b7 ' : ''}carried from ${fmt(a.created)}` : '') : null), addTask && !a.done && /*#__PURE__*/React.createElement("button", {
+  }, a.owner) : a.owner : '', a.created && a.created !== f.date ? `${a.owner ? ' · ' : ''}carried from ${fmt(a.created)}` : '') : null, a.due && /*#__PURE__*/React.createElement("div", {
+    className: "meta",
+    style: daysUntil(a.due) < 0 && !a.done ? {
+      color: 'var(--danger)',
+      marginTop: 2
+    } : {
+      marginTop: 2
+    }
+  }, daysUntil(a.due) < 0 ? 'Overdue · was due ' : 'Due ', fmt(a.due))), addTask && !a.done && /*#__PURE__*/React.createElement("button", {
     className: "linkchip",
     style: {
       marginRight: 6
@@ -16132,6 +16759,17 @@ function CouncilSheet({
       owner: e.target.value
     }),
     placeholder: "Owner (optional)"
+  }), /*#__PURE__*/React.createElement("input", {
+    type: "date",
+    value: ac.due,
+    onChange: e => setAc({
+      ...ac,
+      due: e.target.value
+    }),
+    title: "Due date (optional)",
+    style: {
+      maxWidth: 150
+    }
   }), /*#__PURE__*/React.createElement("button", {
     className: "btn ghost sm",
     onClick: addAc
@@ -16148,7 +16786,7 @@ function CouncilSheet({
     style: {
       marginTop: 6
     },
-    onClick: () => printDoc(f.type || 'Council', fmt(f.date) + (f.time ? ' \u00b7 ' + f.time : ''), '<h2>Agenda</h2>' + printList((f.agenda || []).map(a => ({
+    onClick: () => printDoc(f.type || 'Council', fmt(f.date) + (f.time ? ' · ' + f.time : ''), '<h2>Agenda</h2>' + printList((f.agenda || []).map(a => ({
       text: a.text,
       meta: a.owner,
       done: a.done
@@ -16177,9 +16815,11 @@ function NeedsSeen({
   members,
   go,
   onBack,
-  openPerson
+  openPerson,
+  update
 }) {
   const [open, setOpen] = useState({
+    watch: true,
     rec: true,
     fu: true,
     yi: true,
@@ -16190,12 +16830,83 @@ function NeedsSeen({
     ...o,
     [k]: !o[k]
   }));
+  const [adding, setAdding] = useState(false);
+  const [cName, setCName] = useState('');
+  const [cWhy, setCWhy] = useState('');
+  const [cWhen, setCWhen] = useState('');
   const t = today();
   const tISO = iso(t);
   const d90 = addDays(tISO, 90);
   const d14 = addDays(tISO, 14);
   const d21 = addDays(tISO, 21);
   const yr = t.getFullYear();
+  const care = (data.care || []).filter(c => !c.done);
+  const careSorted = care.slice().sort((a, b) => {
+    const ao = a.nextTouch ? a.nextTouch < tISO ? 0 : 1 : 2;
+    const bo = b.nextTouch ? b.nextTouch < tISO ? 0 : 1 : 2;
+    if (ao !== bo) return ao - bo;
+    const ad = a.nextTouch || a.created || '';
+    const bd = b.nextTouch || b.created || '';
+    return ad < bd ? -1 : ad > bd ? 1 : 0;
+  });
+  const addCare = () => {
+    if (!cName.trim() || !update) return;
+    const nt = cWhen === 'week' ? addDays(tISO, 7) : cWhen === '2week' ? addDays(tISO, 14) : cWhen === 'month' ? addDays(tISO, 30) : '';
+    update(d => ({
+      ...d,
+      care: [...(d.care || []), {
+        id: uid(),
+        name: cName.trim(),
+        intent: cWhy.trim(),
+        nextTouch: nt,
+        lastTouch: '',
+        created: tISO,
+        done: false
+      }]
+    }));
+    setCName('');
+    setCWhy('');
+    setCWhen('');
+    setAdding(false);
+  };
+  const careSet = (id, patch) => update && update(d => ({
+    ...d,
+    care: (d.care || []).map(c => c.id === id ? {
+      ...c,
+      ...patch
+    } : c)
+  }));
+  const careRemove = id => update && update(d => ({
+    ...d,
+    care: (d.care || []).filter(c => c.id !== id)
+  }));
+  const careStatus = c => {
+    if (c.nextTouch && c.nextTouch < tISO) return {
+      pill: 'Overdue',
+      od: true,
+      sub: 'Overdue since ' + fmt(c.nextTouch)
+    };
+    if (c.nextTouch) return {
+      pill: 'Due',
+      sub: 'Reach out by ' + fmt(c.nextTouch)
+    };
+    if (c.lastTouch) return {
+      pill: null,
+      sub: 'Last reached out ' + fmt(c.lastTouch)
+    };
+    return {
+      pill: null,
+      sub: 'Watching'
+    };
+  };
+  const lk = {
+    background: 'none',
+    border: 'none',
+    padding: 0,
+    cursor: 'pointer',
+    fontSize: 12.5,
+    color: 'var(--vespers)'
+  };
   const recs = (members || []).filter(m => m.recommendExpires && m.recommendExpires <= d90).sort((a, b) => a.recommendExpires < b.recommendExpires ? -1 : 1);
   const fus = (members || []).filter(m => m.nextContact && m.nextContact <= d14).sort((a, b) => a.nextContact < b.nextContact ? -1 : 1);
   const yi = (data.youth || []).filter(y => !y.nextInterview || y.nextInterview <= d21).sort((a, b) => (a.nextInterview || '0') < (b.nextInterview || '0') ? -1 : 1);
@@ -16249,7 +16960,7 @@ function NeedsSeen({
       transform: open[k] ? 'rotate(-90deg)' : 'none',
       transition: 'transform .15s'
     }
-  }), title, count ? ` \u00b7 ${count}` : '')), open[k] && /*#__PURE__*/React.createElement("div", {
+  }), title, count ? ` · ${count}` : '')), open[k] && /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 8
     }
@@ -16268,7 +16979,7 @@ function NeedsSeen({
     style: {
       fontSize: 15
     }
-  }, title || '\u2014'), sub ? /*#__PURE__*/React.createElement("div", {
+  }, title || '—'), sub ? /*#__PURE__*/React.createElement("div", {
     className: "meta",
     style: {
       marginTop: 3
@@ -16280,12 +16991,15 @@ function NeedsSeen({
     title: "To see",
     subtitle: "Who needs your attention",
     onBack: onBack
-  }, total > 0 && /*#__PURE__*/React.createElement("button", {
+  }, (total > 0 || care.length > 0) && /*#__PURE__*/React.createElement("button", {
     className: "btn ghost full",
     style: {
       margin: '4px 0 6px'
     },
-    onClick: () => printDoc('To see \u2014 ' + (data.settings && data.settings.ward || 'ward'), fmt(iso(today())), '<h2>Temple recommends</h2>' + printList(recs.map(m => ({
+    onClick: () => printDoc('To see — ' + (data.settings && data.settings.ward || 'ward'), fmt(iso(today())), '<h2>People I’m watching</h2>' + printList(careSorted.map(c => ({
+      text: c.name,
+      meta: [c.intent, careStatus(c).sub].filter(Boolean).join(' · ')
+    }))) + '<h2>Temple recommends</h2>' + printList(recs.map(m => ({
       text: m.name,
       meta: (m.recommendExpires < tISO ? 'expired ' : 'expires ') + fmt(m.recommendExpires)
     }))) + '<h2>Follow-ups</h2>' + printList(fus.map(m => ({
@@ -16296,7 +17010,7 @@ function NeedsSeen({
       meta: y.nextInterview ? 'due ' + fmt(y.nextInterview) : 'unscheduled'
     }))) + '<h2>Advancements</h2>' + printList(adv.map(a => ({
       text: a.y.name,
-      meta: 'turns ' + a.turns + ' \u00b7 ' + a.office
+      meta: 'turns ' + a.turns + ' · ' + a.office
     }))) + '<h2>Pending set-aparts</h2>' + printList(sustained.map(c => ({
       text: c.candidate || c.position,
       meta: c.candidate ? c.position : 'needs setting apart'
@@ -16306,10 +17020,157 @@ function NeedsSeen({
     style: {
       marginTop: 12
     }
-  }, "Unlock your membership directory to include recommend renewals and follow-ups."), total === 0 && /*#__PURE__*/React.createElement(Empty, {
+  }, "Unlock your membership directory to include recommend renewals and follow-ups."), total === 0 && care.length === 0 && /*#__PURE__*/React.createElement(Empty, {
     mark: "All caught up.",
-    text: "Recommend renewals, follow-ups, youth interviews, advancements, and pending set-aparts gather here as their time comes."
-  }), recs.length + 0 >= 0 && sec('rec', 'Temple recommends', recs.length, recs.length ? /*#__PURE__*/React.createElement("div", {
+    text: "Add someone to watch over, or let recommend renewals, follow-ups, youth interviews, advancements, and pending set-aparts gather here as their time comes."
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 16
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => toggle('watch'),
+    style: {
+      display: 'flex',
+      width: '100%',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      background: 'none',
+      border: 0,
+      padding: 0,
+      cursor: 'pointer'
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "ksub",
+    style: {
+      margin: 0,
+      display: 'flex',
+      alignItems: 'center',
+      gap: 6
+    }
+  }, /*#__PURE__*/React.createElement(I.chev, {
+    style: {
+      width: 13,
+      height: 13,
+      transform: open.watch ? 'rotate(-90deg)' : 'none',
+      transition: 'transform .15s'
+    }
+  }), "People I\u2019m watching", care.length ? ` · ${care.length}` : ''), /*#__PURE__*/React.createElement("span", {
+    className: "asklink",
+    style: {
+      fontSize: 12
+    },
+    onClick: e => {
+      e.stopPropagation();
+      setAdding(a => !a);
+    }
+  }, adding ? 'Close' : '+ Add')), open.watch && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 8
+    }
+  }, adding && /*#__PURE__*/React.createElement("div", {
+    className: "card",
+    style: {
+      padding: '12px 14px',
+      marginBottom: 8
+    }
+  }, /*#__PURE__*/React.createElement("input", {
+    value: cName,
+    onChange: e => setCName(e.target.value),
+    placeholder: "Who? (name)",
+    onKeyDown: e => e.key === 'Enter' && addCare()
+  }), /*#__PURE__*/React.createElement("input", {
+    style: {
+      marginTop: 8
+    },
+    value: cWhy,
+    onChange: e => setCWhy(e.target.value),
+    placeholder: "A light nudge \u2014 no private details (optional)"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "seg wrap",
+    style: {
+      marginTop: 8
+    }
+  }, [['', 'No date'], ['week', 'In a week'], ['2week', 'In 2 weeks'], ['month', 'In a month']].map(o => /*#__PURE__*/React.createElement("button", {
+    key: o[0],
+    className: cWhen === o[0] ? 'on' : '',
+    onClick: () => setCWhen(o[0])
+  }, o[1]))), /*#__PURE__*/React.createElement("button", {
+    className: "btn primary full",
+    style: {
+      marginTop: 10
+    },
+    onClick: addCare
+  }, "Add to watch list")), careSorted.length ? /*#__PURE__*/React.createElement("div", {
+    className: "grid",
+    style: {
+      gap: 8
+    }
+  }, careSorted.map(c => {
+    const st = careStatus(c);
+    return /*#__PURE__*/React.createElement("div", {
+      key: c.id,
+      className: "card",
+      style: {
+        padding: '11px 13px'
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "card-row"
+    }, /*#__PURE__*/React.createElement("button", {
+      onClick: () => openPerson && c.name && openPerson(c.name),
+      style: {
+        textAlign: 'left',
+        background: 'none',
+        border: 0,
+        padding: 0,
+        cursor: 'pointer',
+        flex: 1,
+        minWidth: 0
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "title-md",
+      style: {
+        fontSize: 15
+      }
+    }, c.name || '—'), /*#__PURE__*/React.createElement("div", {
+      className: "meta",
+      style: {
+        marginTop: 3
+      }
+    }, [c.intent, st.sub].filter(Boolean).join(' · '))), st.pill && /*#__PURE__*/React.createElement("span", {
+      className: 'pill ' + (st.od ? 'recommend' : 'other')
+    }, st.pill)), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: 'flex',
+        gap: 16,
+        marginTop: 10,
+        alignItems: 'center'
+      }
+    }, /*#__PURE__*/React.createElement("button", {
+      style: lk,
+      onClick: () => careSet(c.id, {
+        lastTouch: tISO,
+        nextTouch: ''
+      })
+    }, "Reached out"), /*#__PURE__*/React.createElement("button", {
+      style: lk,
+      onClick: () => careSet(c.id, {
+        nextTouch: addDays(tISO, 14)
+      })
+    }, "Remind 2 wks"), /*#__PURE__*/React.createElement("button", {
+      className: "link-danger",
+      style: {
+        background: 'none',
+        border: 0,
+        padding: 0,
+        cursor: 'pointer',
+        fontSize: 12.5,
+        marginLeft: 'auto'
+      },
+      onClick: () => careRemove(c.id)
+    }, "Done")));
+  })) : !adding && /*#__PURE__*/React.createElement("div", {
+    className: "meta"
+  }, "No one on your watch list yet. Tap ", /*#__PURE__*/React.createElement("b", null, "+ Add"), " to remember someone to reach out to \u2014 it stays even when the directory is locked."))), recs.length + 0 >= 0 && sec('rec', 'Temple recommends', recs.length, recs.length ? /*#__PURE__*/React.createElement("div", {
     className: "grid",
     style: {
       gap: 8
@@ -16335,7 +17196,7 @@ function NeedsSeen({
     style: {
       gap: 8
     }
-  }, adv.map(a => card('a' + a.y.id, a.y.name, `Turns ${a.turns} this year \u00b7 ${a.office}`, 'Interview', 'youth'))) : /*#__PURE__*/React.createElement("div", {
+  }, adv.map(a => card('a' + a.y.id, a.y.name, `Turns ${a.turns} this year · ${a.office}`, 'Interview', 'youth'))) : /*#__PURE__*/React.createElement("div", {
     className: "meta"
   }, "None this year.")), sec('sa', 'Pending set-aparts', sustained.length, sustained.length ? /*#__PURE__*/React.createElement("div", {
     className: "grid",
@@ -16447,12 +17308,12 @@ function Newcomers({
       className: "card-row"
     }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
       className: "title-md"
-    }, x.name || '\u2014'), /*#__PURE__*/React.createElement("div", {
+    }, x.name || '—'), /*#__PURE__*/React.createElement("div", {
       className: "meta",
       style: {
         marginTop: 3
       }
-    }, x.type, x.arrived ? ` \u00b7 ${fmt(x.arrived)}` : '')), /*#__PURE__*/React.createElement("span", {
+    }, x.type, x.arrived ? ` · ${fmt(x.arrived)}` : '')), /*#__PURE__*/React.createElement("span", {
       className: 'pill ' + (done === NEWCOMER_STEPS.length ? 'other' : 'recommend')
     }, done, "/", NEWCOMER_STEPS.length)));
   }))), tab === 'out' && /*#__PURE__*/React.createElement(React.Fragment, null, outs.length === 0 && /*#__PURE__*/React.createElement(Empty, {
@@ -16472,12 +17333,12 @@ function Newcomers({
     className: "card-row"
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     className: "title-md"
-  }, x.name || '\u2014'), /*#__PURE__*/React.createElement("div", {
+  }, x.name || '—'), /*#__PURE__*/React.createElement("div", {
     className: "meta",
     style: {
       marginTop: 3
     }
-  }, [x.destination, x.when ? fmt(x.when) : ''].filter(Boolean).join(' \u00b7 ') || '\u2014')), /*#__PURE__*/React.createElement("span", {
+  }, [x.destination, x.when ? fmt(x.when) : ''].filter(Boolean).join(' · ') || '—')), /*#__PURE__*/React.createElement("span", {
     className: 'pill ' + (x.forwarded ? 'other' : 'recommend')
   }, x.forwarded ? 'Records sent' : 'Records pending')))))), edit && /*#__PURE__*/React.createElement(NewcomerSheet, {
     x: edit,
@@ -16589,6 +17450,355 @@ function NewcomerSheet({
 
 /* ===== SERVICE — coordination only ===== */
 const SERVICE_KINDS = ['Meal', 'Move', 'Ride', 'Service', 'Other'];
+function LostSheep({
+  data,
+  update,
+  onBack
+}) {
+  const [edit, setEdit] = useState(null);
+  const [filter, setFilter] = useState('seeking');
+  const list = data.lostsheep || [];
+  const save = x => {
+    update(d => {
+      const ex = d.lostsheep || [];
+      const i = ex.findIndex(y => y.id === x.id);
+      return {
+        ...d,
+        lostsheep: i >= 0 ? ex.map(y => y.id === x.id ? x : y) : [...ex, x]
+      };
+    });
+    setEdit(null);
+  };
+  const del = id => {
+    update(d => ({
+      ...d,
+      lostsheep: (d.lostsheep || []).filter(y => y.id !== id)
+    }));
+    setEdit(null);
+  };
+  const blank = () => ({
+    id: uid(),
+    name: '',
+    household: '',
+    phone: '',
+    email: '',
+    address: '',
+    lastSeen: '',
+    discovered: iso(today()),
+    lost: '',
+    status: 'Seeking',
+    attempts: [],
+    notes: '',
+    createdAt: Date.now()
+  });
+  const seekingN = list.filter(x => x.status === 'Seeking').length;
+  const shown = (filter === 'seeking' ? list.filter(x => x.status === 'Seeking') : filter === 'found' ? list.filter(x => x.status !== 'Seeking') : list).slice().sort((a, b) => {
+    const ad = a.lost || a.discovered || '';
+    const bd = b.lost || b.discovered || '';
+    return ad < bd ? -1 : ad > bd ? 1 : 0;
+  });
+  const pillOf = st => st === 'Found' ? {
+    t: 'Found',
+    c: 'var(--sage)'
+  } : st === 'Moved away' ? {
+    t: 'Moved',
+    c: 'var(--mist)'
+  } : {
+    t: 'Seeking',
+    c: 'var(--wheat)'
+  };
+  return /*#__PURE__*/React.createElement(Module, {
+    title: "Lost sheep",
+    subtitle: "Members the ward is seeking",
+    onBack: onBack,
+    onAdd: () => setEdit(blank())
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "privacy",
+    style: {
+      marginTop: 14
+    }
+  }, /*#__PURE__*/React.createElement(I.heart, null), /*#__PURE__*/React.createElement("div", null, "Keep these notes to locating efforts \u2014 last-known details and what has been tried. Leave confidential matters out.")), /*#__PURE__*/React.createElement("div", {
+    className: "seg",
+    style: {
+      margin: '14px 0'
+    }
+  }, [['seeking', 'Seeking' + (seekingN ? ' · ' + seekingN : '')], ['found', 'Found / moved'], ['all', 'All']].map(([v, l]) => /*#__PURE__*/React.createElement("button", {
+    key: v,
+    className: filter === v ? 'on' : '',
+    onClick: () => setFilter(v)
+  }, l))), shown.length === 0 && /*#__PURE__*/React.createElement(Empty, {
+    mark: "None on the list.",
+    text: "Add a member the ward has lost contact with \u2014 last-known details, when they were lost, and every effort made to find them. You can also import an official list from the Import module."
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "grid",
+    style: {
+      gap: 8
+    }
+  }, shown.map(x => {
+    const p = pillOf(x.status);
+    const at = (x.attempts || []).length;
+    const la = at ? x.attempts[at - 1] : null;
+    return /*#__PURE__*/React.createElement("button", {
+      key: x.id,
+      className: "card tap",
+      onClick: () => setEdit(x),
+      style: {
+        textAlign: 'left'
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "card-row"
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        flex: 1
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "title-md"
+    }, x.name || '—'), /*#__PURE__*/React.createElement("div", {
+      className: "meta",
+      style: {
+        marginTop: 3
+      }
+    }, x.lost ? 'Lost since ' + fmt(x.lost) : x.discovered ? 'On the list since ' + fmt(x.discovered) : 'On the list', x.address ? ' · ' + x.address : '')), /*#__PURE__*/React.createElement("span", {
+      className: "pill",
+      style: {
+        flex: '0 0 auto',
+        background: 'var(--chip)',
+        color: p.c
+      }
+    }, p.t)), at > 0 && /*#__PURE__*/React.createElement("div", {
+      className: "meta",
+      style: {
+        marginTop: 8
+      }
+    }, at, " ", at === 1 ? 'attempt' : 'attempts', " logged", la && la.date ? ' · last ' + fmt(la.date) : ''), x.phone && /*#__PURE__*/React.createElement("div", {
+      className: "meta",
+      style: {
+        marginTop: 4
+      }
+    }, "Last known: ", x.phone, x.email ? ' · ' + x.email : ''));
+  })), edit && /*#__PURE__*/React.createElement(LostSheepSheet, {
+    x: edit,
+    onClose: () => setEdit(null),
+    onSave: save,
+    onDelete: () => del(edit.id)
+  }));
+}
+function LostSheepSheet({
+  x,
+  onClose,
+  onSave,
+  onDelete
+}) {
+  const [f, setF] = useState(x);
+  const set = (k, v) => setF({
+    ...f,
+    [k]: v
+  });
+  const [att, setAtt] = useState({
+    date: iso(today()),
+    method: '',
+    note: ''
+  });
+  const addAtt = () => {
+    if (!att.method.trim() && !att.note.trim()) return;
+    set('attempts', [...(f.attempts || []), {
+      id: uid(),
+      date: att.date || iso(today()),
+      method: att.method.trim(),
+      note: att.note.trim()
+    }]);
+    setAtt({
+      date: iso(today()),
+      method: '',
+      note: ''
+    });
+  };
+  const delAtt = id => set('attempts', (f.attempts || []).filter(a => a.id !== id));
+  return /*#__PURE__*/React.createElement(Sheet, {
+    title: x.name ? 'Edit record' : 'New lost-sheep record',
+    onClose: onClose
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "field"
+  }, /*#__PURE__*/React.createElement("label", null, "Name"), /*#__PURE__*/React.createElement("input", {
+    list: "dl-people",
+    value: f.name || '',
+    onChange: e => set('name', e.target.value),
+    placeholder: "Member name"
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "row2"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "field"
+  }, /*#__PURE__*/React.createElement("label", null, "Household"), /*#__PURE__*/React.createElement("input", {
+    value: f.household || '',
+    onChange: e => set('household', e.target.value),
+    placeholder: "Family / household"
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "field"
+  }, /*#__PURE__*/React.createElement("label", null, "Status"), /*#__PURE__*/React.createElement("div", {
+    className: "seg"
+  }, ['Seeking', 'Found', 'Moved away'].map(st => /*#__PURE__*/React.createElement("button", {
+    key: st,
+    className: f.status === st ? 'on' : '',
+    onClick: () => set('status', st)
+  }, st))))), /*#__PURE__*/React.createElement("div", {
+    className: "row2"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "field"
+  }, /*#__PURE__*/React.createElement("label", null, "Phone (last known)"), /*#__PURE__*/React.createElement("input", {
+    value: f.phone || '',
+    onChange: e => set('phone', e.target.value),
+    placeholder: "Phone"
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "field"
+  }, /*#__PURE__*/React.createElement("label", null, "Email (last known)"), /*#__PURE__*/React.createElement("input", {
+    value: f.email || '',
+    onChange: e => set('email', e.target.value),
+    placeholder: "Email"
+  }))), (f.phone || f.email) && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      gap: 8,
+      flexWrap: 'wrap',
+      margin: '-2px 0 10px'
+    }
+  }, f.phone && /*#__PURE__*/React.createElement("a", {
+    className: "btn ghost sm",
+    href: 'tel:' + String(f.phone).replace(/[^+\d]/g, ''),
+    style: {
+      textDecoration: 'none'
+    }
+  }, "Call"), f.phone && /*#__PURE__*/React.createElement("a", {
+    className: "btn ghost sm",
+    href: 'sms:' + String(f.phone).replace(/[^+\d]/g, ''),
+    style: {
+      textDecoration: 'none'
+    }
+  }, "Text"), f.email && /*#__PURE__*/React.createElement("a", {
+    className: "btn ghost sm",
+    href: 'mailto:' + f.email,
+    style: {
+      textDecoration: 'none'
+    }
+  }, "Email")), /*#__PURE__*/React.createElement("div", {
+    className: "field"
+  }, /*#__PURE__*/React.createElement("label", null, "Last known address / area"), /*#__PURE__*/React.createElement("input", {
+    value: f.address || '',
+    onChange: e => set('address', e.target.value),
+    placeholder: "Where they were last known to be"
+  })), f.address && /*#__PURE__*/React.createElement("a", {
+    className: "btn ghost sm",
+    href: 'https://maps.apple.com/?q=' + encodeURIComponent(f.address),
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      textDecoration: 'none',
+      display: 'inline-flex',
+      margin: '-2px 0 10px'
+    }
+  }, "Open in Maps"), /*#__PURE__*/React.createElement("div", {
+    className: "row2"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "field"
+  }, /*#__PURE__*/React.createElement("label", null, "On the list since"), /*#__PURE__*/React.createElement("input", {
+    type: "date",
+    value: f.discovered || '',
+    onChange: e => set('discovered', e.target.value)
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "field"
+  }, /*#__PURE__*/React.createElement("label", null, "Lost / last contact"), /*#__PURE__*/React.createElement("input", {
+    type: "date",
+    value: f.lost || '',
+    onChange: e => set('lost', e.target.value)
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "field"
+  }, /*#__PURE__*/React.createElement("label", null, "Attempts to find them"), (f.attempts || []).length > 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 8
+    }
+  }, f.attempts.map(a => /*#__PURE__*/React.createElement("div", {
+    key: a.id,
+    className: "ag-item"
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 600,
+      color: 'var(--ink)',
+      fontSize: 14
+    }
+  }, a.method || 'Attempt', a.date ? ' · ' + fmt(a.date) : ''), a.note ? /*#__PURE__*/React.createElement("div", {
+    className: "meta",
+    style: {
+      marginTop: 2
+    }
+  }, a.note) : null), /*#__PURE__*/React.createElement("button", {
+    className: "link-danger",
+    style: {
+      fontSize: 13
+    },
+    onClick: () => delAtt(a.id),
+    "aria-label": "Remove attempt"
+  }, /*#__PURE__*/React.createElement(I.x, {
+    style: {
+      width: 14,
+      height: 14
+    }
+  }))))), /*#__PURE__*/React.createElement("div", {
+    className: "row2",
+    style: {
+      marginBottom: 8
+    }
+  }, /*#__PURE__*/React.createElement("input", {
+    type: "date",
+    value: att.date,
+    onChange: e => setAtt({
+      ...att,
+      date: e.target.value
+    })
+  }), /*#__PURE__*/React.createElement("input", {
+    value: att.method,
+    onChange: e => setAtt({
+      ...att,
+      method: e.target.value
+    }),
+    placeholder: "What was tried (call, visit, neighbor\u2026)"
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("input", {
+    value: att.note,
+    onChange: e => setAtt({
+      ...att,
+      note: e.target.value
+    }),
+    onKeyDown: e => e.key === 'Enter' && addAtt(),
+    placeholder: "Outcome / note (optional)"
+  }), /*#__PURE__*/React.createElement("button", {
+    className: "btn ghost sm",
+    onClick: addAtt
+  }, "Log"))), /*#__PURE__*/React.createElement("div", {
+    className: "field"
+  }, /*#__PURE__*/React.createElement("label", null, "Notes"), /*#__PURE__*/React.createElement("textarea", {
+    value: f.notes || '',
+    onChange: e => set('notes', e.target.value),
+    placeholder: "Last-known details, leads, who might know how to reach them"
+  })), /*#__PURE__*/React.createElement("button", {
+    className: "btn primary full",
+    onClick: () => onSave(f)
+  }, "Save"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: 'center',
+      marginTop: 14
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    className: "link-danger",
+    onClick: onDelete
+  }, "Delete")));
+}
 function ServiceBoard({
   data,
   update,
@@ -16656,12 +17866,12 @@ function ServiceBoard({
     className: "card-row"
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     className: "title-md"
-  }, s.kind, s.household ? ` \u00b7 ${s.household}` : ''), /*#__PURE__*/React.createElement("div", {
+  }, s.kind, s.household ? ` · ${s.household}` : ''), /*#__PURE__*/React.createElement("div", {
     className: "meta",
     style: {
       marginTop: 3
     }
-  }, s.when ? fmt(s.when) : 'No date', (s.helpers || []).length ? ` \u00b7 ${s.helpers.length} helping` : '')), /*#__PURE__*/React.createElement("span", {
+  }, s.when ? fmt(s.when) : 'No date', (s.helpers || []).length ? ` · ${s.helpers.length} helping` : '')), /*#__PURE__*/React.createElement("span", {
     className: 'pill ' + (s.status === 'Covered' ? 'other' : s.status === 'Done' ? 'bishopric' : 'recommend')
   }, s.status))))), edit && /*#__PURE__*/React.createElement(ServiceSheet, {
     s: edit,
@@ -16861,7 +18071,7 @@ function quickParse(text, data, people) {
     position = qClean(position.replace(/\s+(next\s+)?(today|tomorrow|tonight|sun|mon|tue|wed|thu|fri|sat)[a-z]*\s*$/i, '').replace(/\b\d{1,2}[\/\-]\d{1,2}\b\s*$/, ''));
     candidate = qClean(candidate.replace(/\b\d{1,2}[\/\-]\d{1,2}\b/, ''));
     const cd = qTailDate(raw);
-    const label = 'Release \u00b7 ' + (candidate || '\u2014') + (position ? ' as ' + position : '') + (cd ? ' \u00b7 ' + fmt(cd) : '');
+    const label = 'Release · ' + (candidate || '—') + (position ? ' as ' + position : '') + (cd ? ' · ' + fmt(cd) : '');
     return {
       kind: 'Release',
       view: 'callings',
@@ -16895,7 +18105,7 @@ function quickParse(text, data, people) {
     position = qClean(position.replace(/\s+(next\s+)?(today|tomorrow|tonight|sun|mon|tue|wed|thu|fri|sat)[a-z]*\s*$/i, '').replace(/\b\d{1,2}[\/\-]\d{1,2}\b\s*$/, ''));
     candidate = qClean(candidate.replace(/\b\d{1,2}[\/\-]\d{1,2}\b/, ''));
     const cd = qTailDate(raw);
-    const label = 'Calling \u00b7 ' + (candidate || '\u2014') + (position ? ' \u2192 ' + position : '') + (cd ? ' \u00b7 sustain ' + fmt(cd) : '');
+    const label = 'Calling · ' + (candidate || '—') + (position ? ' → ' + position : '') + (cd ? ' · sustain ' + fmt(cd) : '');
     return {
       kind: 'Calling',
       view: 'callings',
@@ -16936,7 +18146,7 @@ function quickParse(text, data, people) {
     const fm = raw.match(/\bfor\s+(.+?)(?:\s+on\b|\s*$)/i);
     if (fm) household = qClean(fm[1].replace(/\b(today|tomorrow|tonight|next|mon|tue|wed|thu|fri|sat|sun)[a-z]*\b.*$/i, ''));
     if (!household && person) household = person;
-    const label = 'Service \u00b7 ' + kind + (household ? ' for ' + household : '') + (date ? ' \u00b7 ' + fmt(date) : '');
+    const label = 'Service · ' + kind + (household ? ' for ' + household : '') + (date ? ' · ' + fmt(date) : '');
     return {
       kind: 'Service',
       view: 'service',
@@ -16966,7 +18176,7 @@ function quickParse(text, data, people) {
       topic = qClean(m[2]);
     } else if (!name) name = rest;
     const sd = date || iso(nextSunday());
-    const label = 'Speaker \u00b7 ' + (name || '\u2014') + (topic ? ' on ' + topic : '') + ' \u00b7 ' + fmt(sd);
+    const label = 'Speaker · ' + (name || '—') + (topic ? ' on ' + topic : '') + ' · ' + fmt(sd);
     return {
       kind: 'Speaker',
       view: 'sacrament',
@@ -17017,7 +18227,7 @@ function quickParse(text, data, people) {
     let name = person || qClean(strip(body, /^\s*(missionary|elder|sister)\s+/i));
     name = qClean(String(name || '').replace(/\b(missionary|farewell|homecoming|preparing|serving|returned|mtc)\b/ig, ''));
     const dd = qTailDate(raw) || date;
-    const label = 'Missionary \u00b7 ' + (name || '\u2014') + ' \u00b7 ' + status + (dd ? ' \u00b7 ' + fmt(dd) : '');
+    const label = 'Missionary · ' + (name || '—') + ' · ' + status + (dd ? ' · ' + fmt(dd) : '');
     return {
       kind: 'Missionary',
       view: 'missionaries',
@@ -17042,7 +18252,7 @@ function quickParse(text, data, people) {
     let type = 'Other';
     if (/ward council/i.test(lower)) type = 'Ward council';else if (/bishopric/i.test(lower)) type = 'Bishopric';else if (/youth committee/i.test(lower)) type = 'Youth committee';else if (/\bpec\b/i.test(lower)) type = 'PEC';
     const dd = date || iso(nextSunday());
-    const label = 'Council \u00b7 ' + type + ' \u00b7 ' + fmt(dd) + (time ? ' ' + fmtTime(time) : '');
+    const label = 'Council · ' + type + ' · ' + fmt(dd) + (time ? ' ' + fmtTime(time) : '');
     return {
       kind: 'Council',
       view: 'council',
@@ -17067,7 +18277,7 @@ function quickParse(text, data, people) {
   if (/\bmeeting\b/i.test(lower)) {
     const dd = date || iso(nextSunday());
     const title = body || 'Meeting';
-    const label = 'Meeting \u00b7 ' + title + ' \u00b7 ' + fmt(dd) + (time ? ' ' + fmtTime(time) : '');
+    const label = 'Meeting · ' + title + ' · ' + fmt(dd) + (time ? ' ' + fmtTime(time) : '');
     return {
       kind: 'Meeting',
       view: 'meetings',
@@ -17087,12 +18297,36 @@ function quickParse(text, data, people) {
       }))
     };
   }
+  // WATCH / CARE
+  if (/^\s*(watch|check\s+in\s+on|check\s+on|reach\s+out\s+to|follow\s+up\s+with)\b/i.test(lower)) {
+    let name = person || strip(body, /^\s*(watch|check\s+in\s+on|check\s+on|reach\s+out\s+to|follow\s+up\s+with)\s+/i);
+    name = qClean(String(name || '').replace(/^(on|with|the)\s+/i, ''));
+    const dd = qTailDate(raw) || date;
+    const label = 'Watch · ' + (name || '—') + (dd ? ' · by ' + fmt(dd) : '');
+    return {
+      kind: 'Watch',
+      view: 'tosee',
+      label,
+      commit: up => up(d => ({
+        ...d,
+        care: [...(d.care || []), {
+          id: uid(),
+          name: name || '',
+          intent: '',
+          nextTouch: dd || '',
+          lastTouch: '',
+          created: iso(today()),
+          done: false
+        }]
+      }))
+    };
+  }
   // INTERVIEW / VISIT
   if (/\b(interview|visit|ppi|meet with|see)\b/i.test(lower)) {
     const isVisit = /\bvisit\b/i.test(lower);
     let name = person || invitees || strip(body, /^\s*(interview|visit|ppi|meet with|meet|see)\s+/i).replace(/^(with|the)\s+/i, '');
     name = qClean(name);
-    const label = (isVisit ? 'Visit \u00b7 ' : 'Interview \u00b7 ') + (name || '\u2014') + (date ? ' \u00b7 ' + fmt(date) : '') + (time ? ' ' + fmtTime(time) : '');
+    const label = (isVisit ? 'Visit · ' : 'Interview · ') + (name || '—') + (date ? ' · ' + fmt(date) : '') + (time ? ' ' + fmtTime(time) : '');
     return {
       kind: isVisit ? 'Visit' : 'Interview',
       view: 'interviews',
@@ -17117,7 +18351,7 @@ function quickParse(text, data, people) {
     return {
       kind: 'Note',
       view: 'notes',
-      label: 'Note \u00b7 ' + (tt || '\u2014'),
+      label: 'Note · ' + (tt || '—'),
       commit: up => up(d => ({
         ...d,
         notes: [...(d.notes || []), {
@@ -17137,7 +18371,7 @@ function quickParse(text, data, people) {
   // DEFAULT — TASK
   let title = strip(body, /^\s*(task|todo|to-do|reminder|remind(\s+me)?(\s+to)?)\b[:\s]*/i) || body;
   title = qClean(title.replace(/\s+by\s*$/i, ''));
-  const label = 'Task \u00b7 ' + (title || raw) + (date ? ' \u00b7 due ' + fmt(date) : '');
+  const label = 'Task · ' + (title || raw) + (date ? ' · due ' + fmt(date) : '');
   return {
     kind: 'Task',
     view: 'tasks',
@@ -17205,7 +18439,7 @@ function QuickAdd({
     onKeyDown: e => {
       if (e.key === 'Enter') submit();
     },
-    placeholder: "Quick add \\u2014 type or dictate naturally",
+    placeholder: "Quick add \u2014 type or dictate naturally",
     "aria-label": "Quick add",
     autoFocus: autoFocus,
     style: {
@@ -17241,7 +18475,7 @@ function QuickAdd({
       marginTop: 6,
       lineHeight: 1.55
     }
-  }, "Try \u201Cinterview Tom Young Tuesday 4pm\u201D \\u00b7 \u201Cmeal for the Olsens Thursday\u201D \\u00b7 \u201Csustain Sarah Reed as Primary president\u201D \\u00b7 \u201Ccall Brother Reed by Friday\u201D"), flash && /*#__PURE__*/React.createElement("div", {
+  }, "Try \u201Cinterview Tom Young Tuesday 4pm\u201D \xB7 \u201Cmeal for the Olsens Thursday\u201D \xB7 \u201Csustain Sarah Reed as Primary president\u201D \xB7 \u201Ccall Brother Reed by Friday\u201D"), flash && /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 8,
       display: 'flex',
@@ -17279,7 +18513,7 @@ function escH(v) {
 function printList(items) {
   if (!items || !items.length) return '<div class=empty>None.</div>';
   return '<ul>' + items.map(function (i) {
-    return '<li class="' + (i.done ? 'done' : '') + '">' + escH(i.text) + (i.meta ? ' <span class=m>\u2014 ' + escH(i.meta) + '</span>' : '') + '</li>';
+    return '<li class="' + (i.done ? 'done' : '') + '">' + escH(i.text) + (i.meta ? ' <span class=m>— ' + escH(i.meta) + '</span>' : '') + '</li>';
   }).join('') + '</ul>';
 }
 function printDoc(title, subtitle, bodyHTML) {
@@ -17361,10 +18595,10 @@ function Missionaries({
       const g = list.filter(m => m.status === st);
       return '<h2>' + escH(st) + '</h2>' + printList(g.map(m => ({
         text: m.name,
-        meta: [m.mission, m.status === 'Serving' && m.returnDate ? 'returns ' + fmt(m.returnDate) : '', m.status === 'Preparing' && m.start ? 'enters ' + fmt(m.start) : ''].filter(Boolean).join(' \u00b7 ')
+        meta: [m.mission, m.status === 'Serving' && m.returnDate ? 'returns ' + fmt(m.returnDate) : '', m.status === 'Preparing' && m.start ? 'enters ' + fmt(m.start) : ''].filter(Boolean).join(' · ')
       })));
     }).join('');
-    printDoc((data.settings && data.settings.ward || 'Ward') + ' \u2014 Missionaries', fmt(tISO), body);
+    printDoc((data.settings && data.settings.ward || 'Ward') + ' — Missionaries', fmt(tISO), body);
   };
   return /*#__PURE__*/React.createElement(Module, {
     title: "Missionaries",
@@ -17404,12 +18638,12 @@ function Missionaries({
       className: "card-row"
     }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
       className: "title-md"
-    }, m.name || '\u2014'), /*#__PURE__*/React.createElement("div", {
+    }, m.name || '—'), /*#__PURE__*/React.createElement("div", {
       className: "meta",
       style: {
         marginTop: 3
       }
-    }, [m.status, m.mission].filter(Boolean).join(' \u00b7 ') || '\u2014', m.status === 'Serving' && m.returnDate ? ' \u00b7 returns ' + fmt(m.returnDate) : '')), pill ? /*#__PURE__*/React.createElement("span", {
+    }, [m.status, m.mission].filter(Boolean).join(' · ') || '—', m.status === 'Serving' && m.returnDate ? ' · returns ' + fmt(m.returnDate) : '')), pill ? /*#__PURE__*/React.createElement("span", {
       className: 'pill ' + (/left|Home/.test(pill) ? 'recommend' : 'other')
     }, pill) : null));
   })), edit && /*#__PURE__*/React.createElement(MissionarySheet, {
@@ -17476,7 +18710,7 @@ function MissionarySheet({
     onChange: e => set('note', e.target.value),
     placeholder: "Family contact, farewell or homecoming talk, etc."
   })), (f.returnDate || f.start) && /*#__PURE__*/React.createElement(CalBtn, {
-    onClick: () => addToCalendar((f.name || 'Missionary') + (f.status === 'Serving' ? ' \u2014 homecoming' : ' \u2014 farewell'), f.returnDate || f.start, '', 0, '', f.mission || '', true)
+    onClick: () => addToCalendar((f.name || 'Missionary') + (f.status === 'Serving' ? ' — homecoming' : ' — farewell'), f.returnDate || f.start, '', 0, '', f.mission || '', true)
   }), /*#__PURE__*/React.createElement("button", {
     className: "btn primary full",
     onClick: () => onSave(f)
@@ -17576,16 +18810,30 @@ function MoveOutSheet({
 function SundayView({
   data,
   go,
-  onBack
+  onBack,
+  update,
+  openPerson
 }) {
+  const [wk, setWk] = useState(0);
   const t = today();
-  const tgt = t.getDay() === 0 ? t : nextSunday();
-  const sISO = iso(tgt);
+  const base = iso(t.getDay() === 0 ? t : nextSunday());
+  const sISO = addDays(base, wk * 7);
   const lbl = fmt(sISO);
   const prog = (data.sacrament || []).find(p => p.date === sISO);
+  const hy = prog && prog.hymns || {};
   const ivs = (data.interviews || []).filter(x => x.date === sISO && !x.done).slice().sort((a, b) => (tmin(a.time || '') || 0) - (tmin(b.time || '') || 0));
   const councils = (data.councils || []).filter(c => c.date === sISO);
   const meetings = (data.meetings || []).filter(m => m.date === sISO);
+  const markSeen = id => update && update(d => ({
+    ...d,
+    interviews: (d.interviews || []).map(x => x.id === id ? {
+      ...x,
+      done: true
+    } : x)
+  }));
+  const openP = name => {
+    if (openPerson && name) openPerson(name);else go && go('interviews');
+  };
   const Row = p => /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 18
@@ -17597,7 +18845,12 @@ function SundayView({
     }
   }, p.title), p.children);
   const doPrint = () => {
-    let b = '<h2>Sacrament meeting</h2>';
+    let b = '';
+    b += '<h2>People to see</h2>' + (ivs.length ? printList(ivs.map(x => ({
+      text: x.name || x.type || 'Appointment',
+      meta: [x.time, x.type].filter(Boolean).join(' · ')
+    }))) : '<div class=empty>No one scheduled.</div>');
+    b += '<h2>Sacrament meeting</h2>';
     if (prog) {
       b += printList([{
         text: 'Presiding',
@@ -17606,15 +18859,15 @@ function SundayView({
         text: 'Conducting',
         meta: prog.conducting || ''
       }]);
-      b += '<h2>Speakers</h2>' + printList((prog.speakers || []).map(s => ({
+      if (hy.opening || hy.sacrament || hy.closing) b += '<div class=note>Hymns: ' + [hy.opening && 'Opening ' + hy.opening, hy.sacrament && 'Sacrament ' + hy.sacrament, hy.closing && 'Closing ' + hy.closing].filter(Boolean).join(' · ') + '</div>';
+      if ((prog.speakers || []).length) b += '<h2>Speakers</h2>' + printList(prog.speakers.map(s => ({
         text: s.name,
         meta: s.topic
       })));
+      if (prog.business) b += '<h2>Business — sustainings &amp; releases</h2><div class=note>' + escH(prog.business) + '</div>';
+      if (prog.ordinances) b += '<h2>Ordinances &amp; blessings</h2><div class=note>' + escH(prog.ordinances) + '</div>';
+      if (prog.announcements) b += '<h2>Announcements</h2><div class=note>' + escH(prog.announcements) + '</div>';
     } else b += '<div class=empty>No program entered.</div>';
-    b += '<h2>Interviews & appointments</h2>' + printList(ivs.map(x => ({
-      text: x.type || 'Appointment',
-      meta: x.time || ''
-    })));
     if (councils.length || meetings.length) b += '<h2>Other meetings</h2>' + printList(councils.map(c => ({
       text: c.type,
       meta: c.time || ''
@@ -17622,32 +18875,105 @@ function SundayView({
       text: m.title || m.type || 'Meeting',
       meta: m.time || ''
     }))));
-    printDoc('Sunday \u2014 ' + lbl, data.settings && data.settings.ward || '', b);
+    printDoc('Sunday — ' + lbl, data.settings && data.settings.ward || '', b);
   };
   return /*#__PURE__*/React.createElement(Module, {
     title: "Sunday",
     subtitle: 'Everything for ' + lbl,
     onBack: onBack
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "seg",
+    style: {
+      marginBottom: 4
+    }
   }, /*#__PURE__*/React.createElement("button", {
+    className: wk === 0 ? 'on' : '',
+    onClick: () => setWk(0)
+  }, "This Sunday"), /*#__PURE__*/React.createElement("button", {
+    className: wk === 1 ? 'on' : '',
+    onClick: () => setWk(1)
+  }, "Next Sunday")), /*#__PURE__*/React.createElement("button", {
     className: "btn ghost full",
     style: {
-      margin: '4px 0 2px'
+      margin: '10px 0 2px'
     },
     onClick: doPrint
   }, /*#__PURE__*/React.createElement(I.printer, null), " Print the morning"), /*#__PURE__*/React.createElement(Row, {
+    title: 'People to see' + (ivs.length ? ' · ' + ivs.length : '')
+  }, ivs.length ? /*#__PURE__*/React.createElement("div", {
+    className: "grid",
+    style: {
+      gap: 8
+    }
+  }, ivs.map(x => /*#__PURE__*/React.createElement("div", {
+    key: x.id,
+    className: "card",
+    style: {
+      padding: '11px 13px'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    className: "check",
+    onClick: () => markSeen(x.id),
+    "aria-label": "Mark seen"
+  }, /*#__PURE__*/React.createElement(I.check, null)), /*#__PURE__*/React.createElement("button", {
+    onClick: () => openP(x.name),
+    style: {
+      flex: 1,
+      textAlign: 'left',
+      background: 'none',
+      border: 0,
+      cursor: 'pointer',
+      padding: 0,
+      minWidth: 0
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "title-md",
+    style: {
+      fontSize: 15
+    }
+  }, x.name || x.type || 'Appointment'), /*#__PURE__*/React.createElement("div", {
+    className: "meta",
+    style: {
+      marginTop: 2
+    }
+  }, [x.type, x.location].filter(Boolean).join(' · ') || 'Appointment')), x.time ? /*#__PURE__*/React.createElement("span", {
+    className: "pill other"
+  }, x.time) : null)))) : /*#__PURE__*/React.createElement("div", {
+    className: "meta"
+  }, "No one scheduled yet. ", /*#__PURE__*/React.createElement("button", {
+    onClick: () => go && go('interviews'),
+    style: {
+      color: 'var(--vespers)',
+      fontWeight: 600,
+      background: 'none',
+      border: 0,
+      cursor: 'pointer'
+    }
+  }, "Open interviews \u2192"))), /*#__PURE__*/React.createElement(Row, {
     title: "Sacrament meeting"
-  }, prog ? /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/React.createElement("button", {
     className: "card tap",
     onClick: () => go && go('sacrament'),
     style: {
       textAlign: 'left',
       width: '100%'
     }
-  }, /*#__PURE__*/React.createElement("div", {
+  }, prog ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "meta"
-  }, "Presiding \\u00b7 ", prog.presiding || '\u2014'), /*#__PURE__*/React.createElement("div", {
+  }, "Presiding \xB7 ", prog.presiding || '—'), /*#__PURE__*/React.createElement("div", {
     className: "meta"
-  }, "Conducting \\u00b7 ", prog.conducting || '\u2014'), (prog.speakers || []).length > 0 && /*#__PURE__*/React.createElement("div", {
+  }, "Conducting \xB7 ", prog.conducting || '—'), (hy.opening || hy.sacrament || hy.closing) && /*#__PURE__*/React.createElement("div", {
+    className: "meta",
+    style: {
+      marginTop: 4
+    }
+  }, "Hymns \xB7 ", [hy.opening && 'Opening ' + hy.opening, hy.sacrament && 'Sacrament ' + hy.sacrament, hy.closing && 'Closing ' + hy.closing].filter(Boolean).join(' · ')), (prog.speakers || []).length > 0 && /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 8
     }
@@ -17659,49 +18985,45 @@ function SundayView({
     }
   }, s.name, s.topic ? /*#__PURE__*/React.createElement("span", {
     className: "meta"
-  }, " \\u00b7 ", s.topic) : null)))) : /*#__PURE__*/React.createElement("button", {
-    className: "card tap",
-    onClick: () => go && go('sacrament'),
+  }, " \xB7 ", s.topic) : null))), prog.business && /*#__PURE__*/React.createElement("div", {
     style: {
-      textAlign: 'left',
-      width: '100%'
+      marginTop: 10
     }
   }, /*#__PURE__*/React.createElement("div", {
+    className: "ksub2"
+  }, "Business \u2014 sustainings & releases"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13.5,
+      whiteSpace: 'pre-wrap',
+      marginTop: 2
+    }
+  }, prog.business)), prog.ordinances && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "ksub2"
+  }, "Ordinances & blessings"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13.5,
+      whiteSpace: 'pre-wrap',
+      marginTop: 2
+    }
+  }, prog.ordinances)), prog.announcements && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "ksub2"
+  }, "Announcements"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13.5,
+      whiteSpace: 'pre-wrap',
+      marginTop: 2
+    }
+  }, prog.announcements))) : /*#__PURE__*/React.createElement("div", {
     className: "meta"
-  }, "No program entered for this Sunday \u2014 tap to plan it."))), /*#__PURE__*/React.createElement(Row, {
-    title: 'Interviews & appointments' + (ivs.length ? ' \u00b7 ' + ivs.length : '')
-  }, ivs.length ? /*#__PURE__*/React.createElement("div", {
-    className: "grid",
-    style: {
-      gap: 8
-    }
-  }, ivs.map(x => /*#__PURE__*/React.createElement("button", {
-    key: x.id,
-    className: "card tap",
-    onClick: () => go && go('interviews'),
-    style: {
-      textAlign: 'left'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "card-row"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "title-md",
-    style: {
-      fontSize: 15
-    }
-  }, x.type || 'Appointment'), x.time ? /*#__PURE__*/React.createElement("span", {
-    className: "pill other"
-  }, x.time) : null)))) : /*#__PURE__*/React.createElement("div", {
-    className: "meta"
-  }, "Nothing scheduled. ", /*#__PURE__*/React.createElement("button", {
-    onClick: () => go && go('interviews'),
-    style: {
-      color: 'var(--vespers)',
-      fontWeight: 600,
-      background: 'none',
-      border: 0
-    }
-  }, "Open interviews \\u2192"))), councils.length + meetings.length > 0 && /*#__PURE__*/React.createElement(Row, {
+  }, "No program entered for this Sunday \u2014 tap to plan it."))), councils.length + meetings.length > 0 && /*#__PURE__*/React.createElement(Row, {
     title: "Other meetings"
   }, /*#__PURE__*/React.createElement("div", {
     className: "grid",
@@ -17766,7 +19088,7 @@ function SundayView({
 function Onboarding({
   onDone
 }) {
-  const cards = [['A quiet place to lead', 'Your dashboard, councils, members, callings, and the rhythm of the year, gathered in one place and shaped for the work of a bishop.'], ['Everything stays on this device', 'Your records live only here \u2014 nothing is sent to a server. Back up from Settings to move data to another device or keep it safe.'], ['Built to hold confidences', 'By design, this tool never asks you to record the content of interviews, confessions, or council matters \u2014 only the practical threads of watching over the ward.'], ['Add to your Apple Calendar', 'Wherever you see the calendar button, the event hands off to your own calendar app, so reminders appear where you already look.']];
+  const cards = [['A quiet place to lead', 'Your dashboard, councils, members, callings, and the rhythm of the year, gathered in one place and shaped for the work of a bishop.'], ['Everything stays on this device', 'Your records live only here — nothing is sent to a server. Back up from Settings to move data to another device or keep it safe.'], ['Built to hold confidences', 'By design, this tool never asks you to record the content of interviews, confessions, or council matters — only the practical threads of watching over the ward.'], ['Add to your Apple Calendar', 'Wherever you see the calendar button, the event hands off to your own calendar app, so reminders appear where you already look.']];
   return /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'fixed',
@@ -17804,7 +19126,7 @@ function Onboarding({
       color: 'var(--ink)',
       marginBottom: 14
     }
-  }, "Bishop\\u2019s Companion"), cards.map((c, i) => /*#__PURE__*/React.createElement("div", {
+  }, "Bishop\u2019s Companion"), cards.map((c, i) => /*#__PURE__*/React.createElement("div", {
     key: i,
     style: {
       padding: '13px 0',
@@ -17872,7 +19194,7 @@ function parseChurchDT(str) {
 function stripHTML(s) {
   if (!s) return '';
   let t = String(s).replace(/<br\s*\/?>/gi, '\n').replace(/<\/p>/gi, '\n').replace(/<\/li>/gi, '\n').replace(/<[^>]+>/g, '');
-  t = t.replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&rsquo;/g, '\u2019').replace(/&lsquo;/g, '\u2018').replace(/&rdquo;/g, '\u201D').replace(/&ldquo;/g, '\u201C').replace(/&ndash;/g, '\u2013').replace(/&mdash;/g, '\u2014').replace(/&hellip;/g, '\u2026');
+  t = t.replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&rsquo;/g, '’').replace(/&lsquo;/g, '‘').replace(/&rdquo;/g, '”').replace(/&ldquo;/g, '“').replace(/&ndash;/g, '–').replace(/&mdash;/g, '—').replace(/&hellip;/g, '…');
   return t.replace(/\r/g, '').replace(/\n[ \t]+/g, '\n').replace(/\n{2,}/g, '\n').replace(/[ \t]{2,}/g, ' ').trim();
 }
 function rowToEvent(o) {
@@ -17954,7 +19276,7 @@ function EventImportSheet({
       marginTop: 0,
       marginBottom: 14
     }
-  }, "Import a calendar export (CSV) \\u2014 such as the Churchwide Events list. Columns like Event, Description, Start Time, End Time, and Repeats are read automatically, and the descriptions are cleaned of any formatting. Imported events go on your General Church calendar."), /*#__PURE__*/React.createElement("label", {
+  }, "Import a calendar export (CSV) \u2014 such as the Churchwide Events list. Columns like Event, Description, Start Time, End Time, and Repeats are read automatically, and the descriptions are cleaned of any formatting. Imported events go on your General Church calendar."), /*#__PURE__*/React.createElement("label", {
     className: "btn ghost full",
     style: {
       cursor: 'pointer'
@@ -17988,7 +19310,7 @@ function EventImportSheet({
     style: {
       marginTop: 6
     }
-  }, "Columns found: ", cols.slice(0, 8).join(', '), cols.length > 8 ? '\u2026' : ''), evs[0] && /*#__PURE__*/React.createElement("div", {
+  }, "Columns found: ", cols.slice(0, 8).join(', '), cols.length > 8 ? '…' : ''), evs[0] && /*#__PURE__*/React.createElement("div", {
     className: "meta",
     style: {
       marginTop: 6
@@ -17997,7 +19319,7 @@ function EventImportSheet({
     style: {
       color: 'var(--ink)'
     }
-  }, evs[0].title), " \\u00b7 ", fmt(evs[0].date), evs[0].allDay ? ' (all-day)' : evs[0].startTime ? ' \u00b7 ' + fmtTime(evs[0].startTime) : ''), rows.length !== evs.length && /*#__PURE__*/React.createElement("div", {
+  }, evs[0].title), " \xB7 ", fmt(evs[0].date), evs[0].allDay ? ' (all-day)' : evs[0].startTime ? ' · ' + fmtTime(evs[0].startTime) : ''), rows.length !== evs.length && /*#__PURE__*/React.createElement("div", {
     className: "meta",
     style: {
       marginTop: 6
@@ -18014,7 +19336,7 @@ function EventImportSheet({
     style: {
       marginTop: 8
     }
-  }, "Added to your calendar \\u2014 duplicates (same title and date) are skipped.")));
+  }, "Added to your calendar \u2014 duplicates (same title and date) are skipped.")));
 }
 
 /* ===== CENTRAL IMPORT CENTER ===== */
@@ -18153,6 +19475,25 @@ function rowToNewcomerC(o) {
     done: false
   };
 }
+function rowToLostSheepC(o) {
+  const name = csvName(o) || pickField(o, ['name', 'member']);
+  if (!name) return null;
+  return {
+    id: uid(),
+    name,
+    household: pickField(o, ['household', 'family']),
+    phone: pickField(o, ['phone', 'mobile', 'cell', 'phonenumber']),
+    email: pickField(o, ['email', 'emailaddress']),
+    address: pickField(o, ['address', 'lastknownaddress', 'street']),
+    lastSeen: '',
+    discovered: normDate(pickField(o, ['discovered', 'added', 'onlistsince', 'listed'])) || iso(today()),
+    lost: normDate(pickField(o, ['lost', 'lastcontact', 'lastseen'])),
+    status: pickField(o, ['status']) || 'Seeking',
+    attempts: [],
+    notes: pickField(o, ['note', 'notes']),
+    createdAt: Date.now()
+  };
+}
 function rowToMoveoutC(o) {
   const name = csvName(o) || pickField(o, ['name', 'member']);
   if (!name) return null;
@@ -18223,6 +19564,401 @@ function rowToCouncilC(o) {
     createdAt: Date.now()
   };
 }
+const IMPORT_FIELDS = {
+  members: [{
+    k: 'name',
+    label: 'Name',
+    req: 1,
+    al: ['name', 'fullname', 'member', 'membername', 'displayname', 'preferredname']
+  }, {
+    k: 'firstname',
+    label: 'First name',
+    al: ['firstname', 'first', 'givenname']
+  }, {
+    k: 'lastname',
+    label: 'Last name',
+    al: ['lastname', 'last', 'surname']
+  }, {
+    k: 'household',
+    label: 'Household',
+    al: ['household', 'family', 'householdname']
+  }, {
+    k: 'phone',
+    label: 'Phone',
+    al: ['phone', 'mobile', 'cell', 'phonenumber', 'homephone']
+  }, {
+    k: 'email',
+    label: 'Email',
+    al: ['email', 'emailaddress']
+  }, {
+    k: 'address',
+    label: 'Address',
+    al: ['address', 'street', 'streetaddress', 'mailingaddress', 'address1']
+  }, {
+    k: 'calling',
+    label: 'Calling(s)',
+    al: ['calling', 'callings', 'position', 'assignment']
+  }],
+  leaders: [{
+    k: 'name',
+    label: 'Name',
+    req: 1,
+    al: ['name', 'leader', 'fullname']
+  }, {
+    k: 'organization',
+    label: 'Organization',
+    al: ['organization', 'org']
+  }, {
+    k: 'calling',
+    label: 'Calling',
+    al: ['calling', 'position', 'role']
+  }, {
+    k: 'phone',
+    label: 'Phone',
+    al: ['phone', 'mobile', 'cell']
+  }, {
+    k: 'email',
+    label: 'Email',
+    al: ['email', 'emailaddress']
+  }, {
+    k: 'since',
+    label: 'Since',
+    al: ['since', 'sustained', 'sustaindate']
+  }, {
+    k: 'note',
+    label: 'Note',
+    al: ['note', 'notes']
+  }],
+  events: [{
+    k: 'event',
+    label: 'Event / title',
+    req: 1,
+    al: ['event', 'title', 'subject', 'summary', 'name']
+  }, {
+    k: 'starttime',
+    label: 'Start',
+    req: 1,
+    al: ['starttime', 'start', 'startdate', 'begins', 'begin']
+  }, {
+    k: 'endtime',
+    label: 'End',
+    al: ['endtime', 'end', 'enddate', 'ends']
+  }, {
+    k: 'description',
+    label: 'Description',
+    al: ['description', 'details', 'notes', 'body']
+  }, {
+    k: 'repeats',
+    label: 'Repeats',
+    al: ['repeats', 'repeat', 'recurrence', 'recurring']
+  }],
+  tasks: [{
+    k: 'task',
+    label: 'Task / title',
+    req: 1,
+    al: ['task', 'title', 'todo', 'name', 'subject', 'action']
+  }, {
+    k: 'note',
+    label: 'Note',
+    al: ['note', 'notes', 'description', 'detail']
+  }, {
+    k: 'due',
+    label: 'Due date',
+    al: ['due', 'duedate', 'date', 'deadline']
+  }],
+  interviews: [{
+    k: 'name',
+    label: 'Name',
+    req: 1,
+    al: ['name', 'member', 'person']
+  }, {
+    k: 'type',
+    label: 'Type',
+    al: ['type', 'kind', 'interview']
+  }, {
+    k: 'date',
+    label: 'Date',
+    al: ['date', 'start', 'when']
+  }, {
+    k: 'time',
+    label: 'Time',
+    al: ['time', 'starttime']
+  }, {
+    k: 'location',
+    label: 'Location',
+    al: ['location', 'place']
+  }],
+  callings: [{
+    k: 'candidate',
+    label: 'Candidate',
+    req: 1,
+    al: ['candidate', 'name', 'member', 'person']
+  }, {
+    k: 'position',
+    label: 'Position',
+    al: ['position', 'calling', 'role']
+  }, {
+    k: 'org',
+    label: 'Organization',
+    al: ['org', 'organization']
+  }, {
+    k: 'status',
+    label: 'Status',
+    al: ['status', 'stage']
+  }, {
+    k: 'sustain',
+    label: 'Sustained date',
+    al: ['sustain', 'sustaindate', 'date']
+  }, {
+    k: 'note',
+    label: 'Note',
+    al: ['note', 'notes']
+  }],
+  ministering: [{
+    k: 'companions',
+    label: 'Companions',
+    req: 1,
+    al: ['companions', 'companionship', 'companion', 'ministers']
+  }, {
+    k: 'assignedto',
+    label: 'Assigned households',
+    al: ['assignedto', 'assigned', 'households', 'household', 'to']
+  }, {
+    k: 'lastinterview',
+    label: 'Last interview',
+    al: ['lastinterview', 'interview', 'lastvisit']
+  }, {
+    k: 'note',
+    label: 'Note',
+    al: ['note', 'notes']
+  }],
+  missionaries: [{
+    k: 'name',
+    label: 'Name',
+    req: 1,
+    al: ['name', 'missionary']
+  }, {
+    k: 'status',
+    label: 'Status',
+    al: ['status', 'state']
+  }, {
+    k: 'mission',
+    label: 'Mission',
+    al: ['mission', 'field']
+  }, {
+    k: 'start',
+    label: 'Start',
+    al: ['start', 'enters', 'mtc', 'startdate']
+  }, {
+    k: 'return',
+    label: 'Return date',
+    al: ['return', 'returndate', 'end', 'home', 'releasedate']
+  }, {
+    k: 'note',
+    label: 'Note',
+    al: ['note', 'notes']
+  }],
+  newcomers: [{
+    k: 'name',
+    label: 'Name',
+    req: 1,
+    al: ['name', 'member']
+  }, {
+    k: 'type',
+    label: 'Type (move-in / convert)',
+    al: ['type']
+  }, {
+    k: 'arrived',
+    label: 'Arrived / baptized',
+    al: ['arrived', 'date', 'baptized', 'movein', 'moveindate']
+  }, {
+    k: 'note',
+    label: 'Note',
+    al: ['note', 'notes']
+  }],
+  lostsheep: [{
+    k: 'name',
+    label: 'Name',
+    req: 1,
+    al: ['name', 'member']
+  }, {
+    k: 'household',
+    label: 'Household',
+    al: ['household', 'family']
+  }, {
+    k: 'phone',
+    label: 'Phone (last known)',
+    al: ['phone', 'mobile', 'cell', 'phonenumber']
+  }, {
+    k: 'email',
+    label: 'Email',
+    al: ['email', 'emailaddress']
+  }, {
+    k: 'address',
+    label: 'Last known address',
+    al: ['address', 'street', 'lastknownaddress']
+  }, {
+    k: 'discovered',
+    label: 'On the list since',
+    al: ['discovered', 'added', 'listed', 'onlistsince']
+  }, {
+    k: 'lost',
+    label: 'Lost / last contact',
+    al: ['lost', 'lastcontact', 'lastseen']
+  }, {
+    k: 'note',
+    label: 'Note',
+    al: ['note', 'notes']
+  }],
+  moveouts: [{
+    k: 'name',
+    label: 'Name',
+    req: 1,
+    al: ['name', 'member']
+  }, {
+    k: 'destination',
+    label: 'New ward / area',
+    al: ['destination', 'newward', 'newarea', 'to', 'city', 'where']
+  }, {
+    k: 'when',
+    label: 'Date moved',
+    al: ['when', 'date', 'moved', 'moveout']
+  }, {
+    k: 'note',
+    label: 'Note',
+    al: ['note', 'notes']
+  }],
+  service: [{
+    k: 'household',
+    label: 'Household / for',
+    req: 1,
+    al: ['household', 'family', 'recipient', 'for', 'name']
+  }, {
+    k: 'kind',
+    label: 'Kind (meal / move / ride)',
+    al: ['kind', 'type', 'service']
+  }, {
+    k: 'when',
+    label: 'When',
+    al: ['when', 'date']
+  }, {
+    k: 'status',
+    label: 'Status',
+    al: ['status']
+  }, {
+    k: 'note',
+    label: 'Note',
+    al: ['note', 'notes']
+  }],
+  youth: [{
+    k: 'name',
+    label: 'Name',
+    req: 1,
+    al: ['name', 'youth']
+  }, {
+    k: 'track',
+    label: 'Track (YM / YW)',
+    al: ['track', 'sex', 'gender', 'quorum', 'class']
+  }, {
+    k: 'calling',
+    label: 'Calling',
+    al: ['calling', 'position']
+  }, {
+    k: 'birthdate',
+    label: 'Birth date',
+    al: ['birthdate', 'birth', 'dob', 'born', 'birthday']
+  }, {
+    k: 'nextinterview',
+    label: 'Next interview',
+    al: ['nextinterview', 'interview']
+  }, {
+    k: 'note',
+    label: 'Note',
+    al: ['note', 'notes']
+  }],
+  temple: [{
+    k: 'date',
+    label: 'Date',
+    req: 1,
+    al: ['date', 'when', 'visited']
+  }, {
+    k: 'temple',
+    label: 'Temple',
+    al: ['temple', 'location', 'house']
+  }, {
+    k: 'type',
+    label: 'Ordinance type',
+    al: ['type', 'ordinance']
+  }, {
+    k: 'note',
+    label: 'Note',
+    al: ['note', 'notes']
+  }],
+  councils: [{
+    k: 'type',
+    label: 'Council / type',
+    req: 1,
+    al: ['council', 'type', 'meeting']
+  }, {
+    k: 'date',
+    label: 'Date',
+    al: ['date', 'when']
+  }, {
+    k: 'time',
+    label: 'Time',
+    al: ['time']
+  }, {
+    k: 'location',
+    label: 'Location',
+    al: ['location', 'place']
+  }, {
+    k: 'note',
+    label: 'Note',
+    al: ['note', 'notes']
+  }]
+};
+function importNorm(x) {
+  return String(x == null ? '' : x).toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+function autoMapFields(fields, cols) {
+  const m = {};
+  const used = {};
+  (fields || []).forEach(f => {
+    const cands = [f.k, f.label].concat(f.al || []).map(importNorm);
+    const hit = (cols || []).find(c => !used[c] && cands.indexOf(importNorm(c)) >= 0);
+    if (hit) {
+      m[f.k] = hit;
+      used[hit] = 1;
+    }
+  });
+  return m;
+}
+function splitImportLines(lines, delim) {
+  if (!delim) return {
+    cols: ['Whole line'],
+    rows: (lines || []).map(l => ({
+      'Whole line': l
+    }))
+  };
+  const re = delim === 'spaces' ? /\s{2,}/ : delim === 'tab' ? /\t/ : delim === 'pipe' ? /\|/ : /,/;
+  let max = 1;
+  const parts = (lines || []).map(l => {
+    const p = l.split(re).map(x => x.trim());
+    if (p.length > max) max = p.length;
+    return p;
+  });
+  const cols = [];
+  for (let i = 0; i < max; i++) cols.push('Column ' + (i + 1));
+  const rows = parts.map(p => {
+    const o = {};
+    cols.forEach((c, i) => o[c] = p[i] || '');
+    return o;
+  });
+  return {
+    cols,
+    rows
+  };
+}
 const IMPORT_TARGETS = [{
   key: 'members',
   label: 'Members',
@@ -18230,7 +19966,7 @@ const IMPORT_TARGETS = [{
   primary: 'name',
   pdf: true,
   hint: 'A membership directory or roster. Name, household, phone, email, address, callings.',
-  map: null
+  map: rowToMember
 }, {
   key: 'leaders',
   label: 'Ward leaders',
@@ -18296,6 +20032,14 @@ const IMPORT_TARGETS = [{
   hint: 'Name, type (move-in / convert), arrived date.',
   map: rowToNewcomerC
 }, {
+  key: 'lostsheep',
+  label: 'Lost sheep',
+  dataKey: 'lostsheep',
+  primary: 'name',
+  pdf: true,
+  hint: 'A lost-sheep / less-active locating list. Name, last-known phone, email, address, when lost.',
+  map: rowToLostSheepC
+}, {
   key: 'moveouts',
   label: 'Move-outs',
   dataKey: 'moveouts',
@@ -18347,15 +20091,21 @@ function ImportCenter({
   onBack
 }) {
   const [tgt, setTgt] = useState(null);
-  const [recs, setRecs] = useState(null);
+  const [rawRows, setRawRows] = useState(null);
   const [cols, setCols] = useState([]);
-  const [skipped, setSkipped] = useState(0);
+  const [mapping, setMapping] = useState({});
+  const [srcType, setSrcType] = useState('csv');
+  const [lines, setLines] = useState(null);
+  const [delim, setDelim] = useState('');
   const [err, setErr] = useState('');
   const [busy, setBusy] = useState(false);
   const reset = () => {
-    setRecs(null);
+    setRawRows(null);
     setCols([]);
-    setSkipped(0);
+    setMapping({});
+    setSrcType('csv');
+    setLines(null);
+    setDelim('');
     setErr('');
   };
   const back = () => {
@@ -18367,11 +20117,12 @@ function ImportCenter({
   const recLabel = r => r && (r.name || r.title || r.text || r.event || r.companions || r.candidate || r.position || r.household || r.temple || r.type) || '(record)';
   const dkey = r => (recLabel(r) || '').toLowerCase() + '|' + (r.date || r.due || r.arrived || r.when || r.returnDate || r.sustainDate || r.birthdate || '');
   const membersReady = !(tgt && tgt.key === 'members') || !lockOn || unlocked;
+  const fields = tgt && IMPORT_FIELDS[tgt.key] || [];
   const handleFile = async file => {
     if (!file) return;
     reset();
     if (file.size > 8 * 1024 * 1024) {
-      setErr('That file is over 8 MB \u2014 please use a smaller file.');
+      setErr('That file is over 8 MB — please use a smaller file.');
       return;
     }
     const isPdf = /\.pdf$/i.test(file.name) || file.type === 'application/pdf';
@@ -18389,47 +20140,57 @@ function ImportCenter({
         });
       }
       setBusy(false);
-      let mapped = [],
-        columns = [],
-        raw = 0;
-      if (tgt.key === 'members') {
-        mapped = parseMembers(text);
-        raw = mapped.length;
-        const fl = text.split(/\r?\n/).find(l => l.trim()) || '';
-        if (fl.includes(',')) columns = (() => {
-          try {
-            const r = csvToObjects(text);
-            return r[0] ? Object.keys(r[0]).filter(Boolean) : [];
-          } catch (e) {
-            return [];
-          }
-        })();
-      } else {
-        const firstLine = text.split(/\r?\n/).find(l => l.trim()) || '';
-        const csvish = firstLine.includes(',');
-        let rows;
-        if (csvish) {
-          rows = csvToObjects(text);
-          columns = rows[0] ? Object.keys(rows[0]).filter(Boolean) : [];
-        } else {
-          rows = text.split(/\r?\n/).map(l => l.trim()).filter(Boolean).map(l => {
-            const o = {};
-            o[tgt.primary || 'name'] = l;
-            return o;
-          });
+      const firstLine = text.split(/\r?\n/).find(l => l.trim()) || '';
+      if (firstLine.includes(',')) {
+        const rows = csvToObjects(text);
+        if (!rows.length) {
+          setErr('No rows found. A CSV needs a header row plus at least one line of data.');
+          return;
         }
-        raw = rows.length;
-        mapped = rows.map(tgt.map).filter(Boolean);
+        const c = rows[0] ? Object.keys(rows[0]).filter(Boolean) : [];
+        setSrcType('csv');
+        setLines(null);
+        setCols(c);
+        setRawRows(rows);
+        setMapping(autoMapFields(fields, c));
+      } else {
+        const ls = text.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+        if (!ls.length) {
+          setErr('That file looks empty.');
+          return;
+        }
+        const sp = splitImportLines(ls, '');
+        setSrcType('lines');
+        setLines(ls);
+        setDelim('');
+        setCols(sp.cols);
+        setRawRows(sp.rows);
+        setMapping(autoMapFields(fields, sp.cols));
       }
-      setCols(columns);
-      setSkipped(Math.max(0, raw - mapped.length));
-      setRecs(mapped);
-      if (!mapped.length) setErr('No ' + tgt.label.toLowerCase() + ' could be read from that file. For CSV, include a header row that names the columns.');
     } catch (e) {
       setBusy(false);
-      setErr(isPdf ? 'Could not read that PDF on this device. Try a CSV instead, or open the PDF, copy the text, and save it as a CSV.' : 'Could not read that file.');
+      setErr(isPdf ? 'Could not read that PDF on this device. Try a CSV, or open the PDF, copy the text, and save it as a CSV.' : 'Could not read that file.');
     }
   };
+  const changeDelim = d => {
+    setDelim(d);
+    const sp = splitImportLines(lines || [], d);
+    setCols(sp.cols);
+    setRawRows(sp.rows);
+    setMapping(autoMapFields(fields, sp.cols));
+  };
+  const setMap = (k, c) => setMapping(m => Object.assign({}, m, {
+    [k]: c
+  }));
+  const recs = rawRows && tgt && tgt.map ? rawRows.map(r => {
+    const o = {};
+    fields.forEach(f => {
+      const c = mapping[f.k];
+      if (c && r[c] != null && String(r[c]).trim() !== '') o[f.k] = r[c];
+    });
+    return tgt.map(o);
+  }).filter(Boolean) : null;
+  const anyMapped = Object.keys(mapping).some(k => mapping[k]);
   const commit = () => {
     if (!recs || !recs.length) return;
     if (tgt.key === 'members') {
@@ -18475,7 +20236,7 @@ function ImportCenter({
       style: {
         margin: '2px 2px 14px'
       }
-    }, "Choose what you're importing. CSV files are matched by their column headers; many targets also take a PDF (best for name lists like a directory). Everything is read on this device \\u2014 nothing is uploaded."), /*#__PURE__*/React.createElement("div", {
+    }, "Choose what you're importing. You'll match each column in your file to a field, with a preview, before anything is saved. Everything is read on this device \u2014 nothing is uploaded."), /*#__PURE__*/React.createElement("div", {
       className: "grid",
       style: {
         gap: 9
@@ -18508,11 +20269,12 @@ function ImportCenter({
       style: {
         flex: '0 0 auto'
       }
-    }, t.pdf ? 'CSV \u00b7 PDF' : 'CSV'))))));
+    }, t.pdf ? 'CSV · PDF' : 'CSV'))))));
   }
+  const DELIMS = [['', 'Whole line'], ['comma', 'Comma'], ['tab', 'Tab'], ['spaces', '2+ spaces'], ['pipe', 'Pipe |']];
   return /*#__PURE__*/React.createElement(Module, {
     title: 'Import ' + tgt.label,
-    subtitle: "Choose a file to bring in",
+    subtitle: "Match your columns, then import",
     onBack: back
   }, /*#__PURE__*/React.createElement("button", {
     className: "btn ghost sm",
@@ -18520,16 +20282,16 @@ function ImportCenter({
       marginBottom: 12
     },
     onClick: back
-  }, "\\u2190 All imports"), /*#__PURE__*/React.createElement("p", {
+  }, "\u2190 All imports"), /*#__PURE__*/React.createElement("p", {
     className: "meta",
     style: {
       margin: '0 2px 12px'
     }
-  }, tgt.hint, " Columns are matched by header name, and close variations are recognized."), tgt.key === 'members' && !membersReady && /*#__PURE__*/React.createElement("div", {
+  }, tgt.hint), tgt.key === 'members' && !membersReady && /*#__PURE__*/React.createElement("div", {
     className: "banner"
   }, /*#__PURE__*/React.createElement(I.lock, null), /*#__PURE__*/React.createElement("div", {
     className: "bt"
-  }, "Unlock the member directory first \\u2014 open Members and enter your passcode \\u2014 then come back to import.")), /*#__PURE__*/React.createElement("label", {
+  }, "Unlock the member directory first \u2014 open Members and enter your passcode \u2014 then come back to import.")), /*#__PURE__*/React.createElement("label", {
     className: "btn ghost full",
     style: {
       cursor: membersReady ? 'pointer' : 'not-allowed',
@@ -18552,29 +20314,56 @@ function ImportCenter({
     style: {
       marginTop: 12
     }
-  }, "Reading file\\u2026"), err && /*#__PURE__*/React.createElement("p", {
+  }, "Reading file\u2026"), err && /*#__PURE__*/React.createElement("p", {
     style: {
       color: 'var(--danger)',
       fontSize: 13,
       marginTop: 12
     }
-  }, err), recs && recs.length > 0 && /*#__PURE__*/React.createElement("div", {
+  }, err), rawRows && /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 16
     }
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "card",
-    style: {
-      padding: '14px 16px'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "title-md"
-  }, recs.length, " ", tgt.label.toLowerCase(), " ready to import"), cols.length > 0 && /*#__PURE__*/React.createElement("div", {
+  }, srcType === 'lines' && /*#__PURE__*/React.createElement("div", {
+    className: "field"
+  }, /*#__PURE__*/React.createElement("label", null, "How are the columns separated?"), /*#__PURE__*/React.createElement("div", {
+    className: "seg"
+  }, DELIMS.map(([v, l]) => /*#__PURE__*/React.createElement("button", {
+    key: v || 'whole',
+    className: delim === v ? 'on' : '',
+    onClick: () => changeDelim(v)
+  }, l))), /*#__PURE__*/React.createElement("p", {
     className: "meta",
     style: {
+      marginTop: 4
+    }
+  }, "A PDF or plain list has no headers. Pick how each line splits into columns, then match them below.")), /*#__PURE__*/React.createElement("div", {
+    className: "section-label"
+  }, /*#__PURE__*/React.createElement("h2", null, "Match columns to fields")), /*#__PURE__*/React.createElement("p", {
+    className: "meta",
+    style: {
+      margin: '-6px 2px 12px'
+    }
+  }, "For each field, choose which column from your file holds it. Leave a field on \\u201cNot imported\\u201d to skip it."), fields.map(f => /*#__PURE__*/React.createElement("div", {
+    key: f.k,
+    className: "field"
+  }, /*#__PURE__*/React.createElement("label", null, f.label, f.req ? ' \u00b7 needed' : ''), /*#__PURE__*/React.createElement("select", {
+    value: mapping[f.k] || '',
+    onChange: e => setMap(f.k, e.target.value)
+  }, /*#__PURE__*/React.createElement("option", {
+    value: ""
+  }, "\u2014 Not imported \u2014"), cols.map(c => /*#__PURE__*/React.createElement("option", {
+    key: c,
+    value: c
+  }, c))))), /*#__PURE__*/React.createElement("div", {
+    className: "card",
+    style: {
+      padding: '14px 16px',
       marginTop: 6
     }
-  }, "Columns found: ", cols.slice(0, 8).join(', '), cols.length > 8 ? '\u2026' : ''), /*#__PURE__*/React.createElement("div", {
+  }, recs && recs.length > 0 ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    className: "title-md"
+  }, recs.length, " ", tgt.label.toLowerCase(), " ready to import"), /*#__PURE__*/React.createElement("div", {
     className: "meta",
     style: {
       marginTop: 6
@@ -18583,23 +20372,26 @@ function ImportCenter({
     style: {
       color: 'var(--ink)'
     }
-  }, recLabel(recs[0]))), skipped > 0 && /*#__PURE__*/React.createElement("div", {
+  }, recLabel(recs[0]))), rawRows.length > recs.length && /*#__PURE__*/React.createElement("div", {
     className: "meta",
     style: {
       marginTop: 6
     }
-  }, skipped, " row(s) skipped (missing required info).")), /*#__PURE__*/React.createElement("button", {
+  }, rawRows.length - recs.length, " row(s) will be skipped (missing needed info).")) : /*#__PURE__*/React.createElement("div", {
+    className: "meta"
+  }, anyMapped ? 'No complete records yet — check that the needed field points at the right column.' : 'Match at least the needed field above to see a preview.')), /*#__PURE__*/React.createElement("button", {
     className: "btn primary full",
     style: {
       marginTop: 14
     },
+    disabled: !recs || !recs.length,
     onClick: commit
-  }, "Import ", recs.length, " ", tgt.label.toLowerCase()), /*#__PURE__*/React.createElement("p", {
+  }, "Import", recs && recs.length ? ' ' + recs.length + ' ' + tgt.label.toLowerCase() : ''), /*#__PURE__*/React.createElement("p", {
     className: "meta",
     style: {
       marginTop: 8
     }
-  }, "Added to what's already there \\u2014 duplicates are skipped.")));
+  }, "Added to what's already there \u2014 duplicates are skipped.")));
 }
 
 /* ===== KEYBOARD SHORTCUTS: command palette + help ===== */
@@ -18619,14 +20411,14 @@ function CommandPalette({
   const [sel, setSel] = useState(0);
   const acts = [{
     id: 'quick',
-    label: 'Quick add\u2026',
+    label: 'Quick add…',
     hint: 'Capture a note, task or name',
     icon: I.plus,
     run: onQuick
   }, {
     id: 'ask',
     label: 'Ask / Find anything',
-    hint: 'Search everything you\u2019ve kept',
+    hint: 'Search everything you’ve kept',
     icon: I.search,
     run: onAsk
   }, {
@@ -18742,7 +20534,7 @@ function CommandPalette({
     value: q,
     onChange: e => setQ(e.target.value),
     onKeyDown: onKey,
-    placeholder: "Jump to a module or action\\u2026",
+    placeholder: "Jump to a module or action\u2026",
     style: {
       flex: 1,
       border: 'none',
@@ -18847,7 +20639,7 @@ function ShortcutsHelp({
     style: {
       margin: '2px 2px 14px'
     }
-  }, "These work whenever a hardware keyboard is connected \\u2014 the single-key ones fire when you\\u2019re not typing in a field. The command palette opens with ", /*#__PURE__*/React.createElement("b", null, "Cmd/Ctrl\xA0+\xA0K"), " and doubles as a searchable launcher you can tap on a touchscreen."), /*#__PURE__*/React.createElement("div", {
+  }, "These work whenever a hardware keyboard is connected \u2014 the single-key ones fire when you\u2019re not typing in a field. The command palette opens with ", /*#__PURE__*/React.createElement("b", null, "Cmd/Ctrl\xA0+\xA0K"), " and doubles as a searchable launcher you can tap on a touchscreen."), /*#__PURE__*/React.createElement("div", {
     className: "card",
     style: {
       padding: 6
@@ -18913,6 +20705,12 @@ const MODREG = {
     icon: I.heart,
     desc: 'Who needs your attention'
   },
+  lostsheep: {
+    label: 'Lost sheep',
+    short: 'Lost sheep',
+    icon: I.lost,
+    desc: 'Members the ward is seeking — last-known details & search efforts'
+  },
   newcomers: {
     label: 'New & coming',
     short: 'New',
@@ -18929,7 +20727,7 @@ const MODREG = {
     label: 'Planner',
     short: 'Planner',
     icon: I.cal,
-    desc: 'Your week, what\u2019s due & milestones'
+    desc: 'Your week, what’s due & milestones'
   },
   meetings: {
     label: 'Meetings',
@@ -19013,7 +20811,7 @@ const MODREG = {
     label: 'Covenant path',
     short: 'Covenant',
     icon: I.flag,
-    desc: 'Members\u2019 progress toward the temple'
+    desc: 'Members’ progress toward the temple'
   },
   temple: {
     label: 'Temple attendance',
@@ -19026,6 +20824,12 @@ const MODREG = {
     short: 'Reports',
     icon: I.chart,
     desc: 'Record ward numbers & see trends'
+  },
+  archive: {
+    label: 'Archive',
+    short: 'Archive',
+    icon: I.archive,
+    desc: 'Completed interviews, meetings, tasks & more — searchable'
   },
   import: {
     label: 'Import data',
@@ -19058,12 +20862,12 @@ const MODREG = {
     desc: 'Protect your rest and your family'
   }
 };
-const DEFAULT_ORDER = ['planner', 'sunday', 'meetings', 'council', 'tasks', 'sacrament', 'speakers', 'interviews', 'prep', 'scripture', 'notes', 'members', 'callings', 'tosee', 'newcomers', 'service', 'youth', 'missionaries', 'ministering', 'covenant', 'temple', 'tithing', 'reports', 'import', 'rhythm', 'handbook', 'delegation', 'guardrails'];
+const DEFAULT_ORDER = ['planner', 'sunday', 'meetings', 'council', 'tasks', 'sacrament', 'speakers', 'interviews', 'prep', 'scripture', 'notes', 'members', 'callings', 'tosee', 'lostsheep', 'newcomers', 'service', 'youth', 'missionaries', 'ministering', 'covenant', 'temple', 'tithing', 'reports', 'import', 'archive', 'rhythm', 'handbook', 'delegation', 'guardrails'];
 const UTILS = [{
   k: 'search',
   label: 'Search',
   icon: I.search,
-  desc: 'Find anything you\u2019ve captured'
+  desc: 'Find anything you’ve captured'
 }, {
   k: 'settings',
   label: 'Settings',
@@ -19090,6 +20894,41 @@ function navOrder(data) {
   });
   return out;
 }
+const NAV_CATEGORIES = [{
+  label: 'Sunday & meetings',
+  keys: ['sunday', 'sacrament', 'speakers', 'meetings', 'council', 'interviews']
+}, {
+  label: 'Watching over members',
+  keys: ['tosee', 'lostsheep', 'members', 'ministering', 'newcomers', 'service', 'covenant', 'tithing']
+}, {
+  label: 'Callings & people',
+  keys: ['callings', 'delegation', 'youth', 'missionaries']
+}, {
+  label: 'Study & preparation',
+  keys: ['prep', 'scripture', 'notes', 'temple', 'handbook']
+}, {
+  label: 'Planning & rhythm',
+  keys: ['planner', 'tasks', 'rhythm', 'guardrails']
+}, {
+  label: 'Records & data',
+  keys: ['reports', 'import', 'archive']
+}];
+function navGroups(keys) {
+  const present = (keys || []).filter(k => MODREG[k]);
+  const set = new Set(present);
+  const known = new Set();
+  NAV_CATEGORIES.forEach(c => c.keys.forEach(k => known.add(k)));
+  const groups = NAV_CATEGORIES.map(c => ({
+    label: c.label,
+    keys: c.keys.filter(k => set.has(k))
+  }));
+  const other = present.filter(k => !known.has(k));
+  if (other.length) groups.push({
+    label: 'More',
+    keys: other
+  });
+  return groups.filter(g => g.keys.length);
+}
 function tabKeysFor(order) {
   return ['today'].concat(order.slice(0, TAB_SLOTS));
 }
@@ -19097,29 +20936,71 @@ function tabKeysFor(order) {
 /* ===== MORE LAUNCHER ===== */
 function More({
   go,
-  order
+  order,
+  collapsed,
+  onToggleCat
 }) {
-  const keys = order.slice(TAB_SLOTS).concat(UTIL_KEYS);
+  const groups = navGroups(order.slice(TAB_SLOTS));
+  const lc = (k, m) => /*#__PURE__*/React.createElement("button", {
+    key: k,
+    className: "lc",
+    onClick: () => go(k)
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "ic"
+  }, React.createElement(m.icon)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", null, m.label), /*#__PURE__*/React.createElement("p", null, m.desc)));
   return /*#__PURE__*/React.createElement(Module, {
     title: "More",
     subtitle: "The rest of the toolkit"
+  }, groups.map(g => {
+    const col = (collapsed || {})[g.label];
+    return /*#__PURE__*/React.createElement("div", {
+      key: g.label,
+      style: {
+        marginTop: 18
+      }
+    }, /*#__PURE__*/React.createElement("button", {
+      type: "button",
+      className: "ksub",
+      onClick: () => onToggleCat && onToggleCat(g.label),
+      style: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: 6,
+        width: '100%',
+        background: 'none',
+        border: 0,
+        cursor: 'pointer',
+        margin: '0 0 8px',
+        textAlign: 'left'
+      }
+    }, /*#__PURE__*/React.createElement(I.chev, {
+      style: {
+        width: 12,
+        height: 12,
+        transform: col ? 'none' : 'rotate(-90deg)',
+        transition: 'transform .15s',
+        opacity: .55
+      }
+    }), g.label), !col && /*#__PURE__*/React.createElement("div", {
+      className: "launch"
+    }, g.keys.map(k => lc(k, MODREG[k]))));
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 18
+    }
   }, /*#__PURE__*/React.createElement("div", {
+    className: "ksub",
+    style: {
+      margin: '0 0 8px'
+    }
+  }, "Utilities"), /*#__PURE__*/React.createElement("div", {
     className: "launch"
-  }, keys.map(k => {
-    const m = MODREG[k] || UTILS.find(u => u.k === k);
-    return /*#__PURE__*/React.createElement("button", {
-      key: k,
-      className: "lc",
-      onClick: () => go(k)
-    }, /*#__PURE__*/React.createElement("div", {
-      className: "ic"
-    }, React.createElement(m.icon)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", null, m.label), /*#__PURE__*/React.createElement("p", null, m.desc)));
-  }), /*#__PURE__*/React.createElement("button", {
+  }, UTILS.map(u => lc(u.k, u)), /*#__PURE__*/React.createElement("button", {
     className: "lc",
     onClick: () => go('navorder')
   }, /*#__PURE__*/React.createElement("div", {
     className: "ic"
-  }, /*#__PURE__*/React.createElement(I.sliders, null)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", null, "Customize navigation"), /*#__PURE__*/React.createElement("p", null, "Reorder modules for priority & focus")))));
+  }, /*#__PURE__*/React.createElement(I.sliders, null)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", null, "Customize navigation"), /*#__PURE__*/React.createElement("p", null, "Reorder modules for priority & focus"))))));
 }
 
 /* ===== SIDEBAR (iPad) ===== */
@@ -19127,7 +21008,9 @@ function Sidebar({
   view,
   go,
   icon,
-  order
+  order,
+  collapsed,
+  onToggleCat
 }) {
   return /*#__PURE__*/React.createElement("aside", {
     className: "sidebar"
@@ -19148,14 +21031,35 @@ function Sidebar({
   }, "Companion")), /*#__PURE__*/React.createElement("button", {
     className: `snav${view === 'today' ? ' active' : ''}`,
     onClick: () => go('today')
-  }, /*#__PURE__*/React.createElement(I.today, null), "Today"), order.map((k, i) => /*#__PURE__*/React.createElement(React.Fragment, {
-    key: k
-  }, i === TAB_SLOTS && /*#__PURE__*/React.createElement("div", {
-    className: "snav section"
-  }, "More"), /*#__PURE__*/React.createElement("button", {
-    className: `snav${view === k ? ' active' : ''}`,
-    onClick: () => go(k)
-  }, React.createElement(MODREG[k].icon), MODREG[k].short))), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement(I.today, null), "Today"), navGroups(order).map(g => {
+    const col = (collapsed || {})[g.label];
+    return /*#__PURE__*/React.createElement(React.Fragment, {
+      key: g.label
+    }, /*#__PURE__*/React.createElement("button", {
+      type: "button",
+      className: "snav section",
+      onClick: () => onToggleCat && onToggleCat(g.label),
+      style: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '100%',
+        cursor: 'pointer'
+      }
+    }, /*#__PURE__*/React.createElement("span", null, g.label), /*#__PURE__*/React.createElement(I.chev, {
+      style: {
+        width: 12,
+        height: 12,
+        transform: col ? 'none' : 'rotate(-90deg)',
+        transition: 'transform .15s',
+        opacity: .55
+      }
+    })), !col && g.keys.map(k => /*#__PURE__*/React.createElement("button", {
+      key: k,
+      className: `snav${view === k ? ' active' : ''}`,
+      onClick: () => go(k)
+    }, React.createElement(MODREG[k].icon), MODREG[k].short)));
+  }), /*#__PURE__*/React.createElement("div", {
     className: "snav section"
   }, "Utilities"), UTILS.map(u => /*#__PURE__*/React.createElement("button", {
     key: u.k,
@@ -19447,6 +21351,14 @@ function App() {
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, []);
+  useEffect(() => {
+    const h = e => {
+      const t = e.target && e.target.closest && e.target.closest('.check,.btn.primary,.fab,.tab,.snav,.tile,.card.tap,.seg button');
+      if (t) haptic(6);
+    };
+    document.addEventListener('click', h, true);
+    return () => document.removeEventListener('click', h, true);
+  }, []);
   const update = fn => setData(prev => {
     const next = fn(prev);
     try {
@@ -19472,6 +21384,18 @@ function App() {
   }, "Bishop\u2019s Companion\u2026"));
   const order = navOrder(data);
   const tabKeys = tabKeysFor(order);
+  const navCollapsed = data.settings && data.settings.navCollapsed || {};
+  const backupDue = daysSince(data.settings && data.settings.lastBackup) >= 14;
+  const toggleCat = label => update(d => {
+    const nc = Object.assign({}, d.settings && d.settings.navCollapsed || {});
+    nc[label] = !nc[label];
+    return {
+      ...d,
+      settings: Object.assign({}, d.settings, {
+        navCollapsed: nc
+      })
+    };
+  });
   const tabKey = tabKeys.includes(view) ? view : 'more';
   const back = () => setView('more');
   const underMore = view !== 'more' && view !== 'navorder' && !tabKeys.includes(view);
@@ -19576,7 +21500,9 @@ function App() {
       case 'more':
         return /*#__PURE__*/React.createElement(More, {
           go: setView,
-          order: order
+          order: order,
+          collapsed: navCollapsed,
+          onToggleCat: toggleCat
         });
       case 'navorder':
         return /*#__PURE__*/React.createElement(NavOrder, {
@@ -19657,6 +21583,12 @@ function App() {
           update: update,
           onBack: bb
         });
+      case 'archive':
+        return /*#__PURE__*/React.createElement(Archive, {
+          data: data,
+          go: setView,
+          onBack: bb
+        });
       case 'import':
         return /*#__PURE__*/React.createElement(ImportCenter, {
           data: data,
@@ -19726,7 +21658,14 @@ function App() {
           members: membersData,
           go: setView,
           onBack: bb,
-          openPerson: openPerson
+          openPerson: openPerson,
+          update: update
+        });
+      case 'lostsheep':
+        return /*#__PURE__*/React.createElement(LostSheep, {
+          data: data,
+          update: update,
+          onBack: bb
         });
       case 'newcomers':
         return /*#__PURE__*/React.createElement(Newcomers, {
@@ -19744,7 +21683,9 @@ function App() {
         return /*#__PURE__*/React.createElement(SundayView, {
           data: data,
           go: setView,
-          onBack: bb
+          onBack: bb,
+          update: update,
+          openPerson: openPerson
         });
       case 'service':
         return /*#__PURE__*/React.createElement(ServiceBoard, {
@@ -19854,8 +21795,13 @@ function App() {
     view: view,
     go: setView,
     icon: icon,
-    order: order
-  }), V(), /*#__PURE__*/React.createElement("div", {
+    order: order,
+    collapsed: navCollapsed,
+    onToggleCat: toggleCat
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "viewfade",
+    key: view
+  }, V()), /*#__PURE__*/React.createElement("div", {
     className: "hdr"
   }, /*#__PURE__*/React.createElement("div", {
     className: "addwrap"
@@ -19878,13 +21824,42 @@ function App() {
       setNavOpen(false);
       setView('today');
     }
-  }, React.createElement(I.today), "Today"), order.map(k => /*#__PURE__*/React.createElement("button", {
-    key: k,
-    onClick: () => {
-      setNavOpen(false);
-      setView(k);
-    }
-  }, React.createElement(MODREG[k].icon), MODREG[k].label)), /*#__PURE__*/React.createElement("div", {
+  }, React.createElement(I.today), "Today"), navGroups(order).map(g => {
+    const col = navCollapsed[g.label];
+    return /*#__PURE__*/React.createElement(React.Fragment, {
+      key: g.label
+    }, /*#__PURE__*/React.createElement("button", {
+      type: "button",
+      className: "mlabel",
+      onClick: () => toggleCat(g.label),
+      style: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: 6,
+        width: '100%',
+        background: 'none',
+        border: 0,
+        cursor: 'pointer',
+        marginTop: 8,
+        fontSize: 11,
+        opacity: .85,
+        textAlign: 'left'
+      }
+    }, /*#__PURE__*/React.createElement(I.chev, {
+      style: {
+        width: 11,
+        height: 11,
+        transform: col ? 'none' : 'rotate(-90deg)',
+        transition: 'transform .15s'
+      }
+    }), g.label), !col && g.keys.map(k => /*#__PURE__*/React.createElement("button", {
+      key: k,
+      onClick: () => {
+        setNavOpen(false);
+        setView(k);
+      }
+    }, React.createElement(MODREG[k].icon), MODREG[k].label)));
+  }), /*#__PURE__*/React.createElement("div", {
     className: "mdiv"
   }), UTILS.map(u => /*#__PURE__*/React.createElement("button", {
     key: u.k,
@@ -19939,6 +21914,31 @@ function App() {
       setView('leadership');
     }
   }, /*#__PURE__*/React.createElement(I.team, null), "New church leader")))), /*#__PURE__*/React.createElement("button", {
+    className: "hbtn",
+    onClick: () => {
+      setNavOpen(false);
+      setAddOpen(false);
+      setAskOpen(false);
+      setQuickOpen(false);
+      setView('settings');
+    },
+    "aria-label": "Back up data",
+    style: {
+      position: 'relative'
+    }
+  }, /*#__PURE__*/React.createElement(I.backup, null), backupDue && /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      position: 'absolute',
+      top: 6,
+      right: 6,
+      width: 7,
+      height: 7,
+      borderRadius: '50%',
+      background: 'var(--wheat)',
+      boxShadow: '0 0 0 2px var(--alabaster)'
+    }
+  })), /*#__PURE__*/React.createElement("button", {
     className: "hbtn",
     onClick: () => {
       setAddOpen(false);
